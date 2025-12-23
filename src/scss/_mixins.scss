@@ -1,0 +1,51 @@
+@use "sass:list";
+@use "sass:map";
+@use "variables" as *;
+
+// Generate CSS Variables from Color Map
+@mixin generate-color-variables($color-map) {
+  :root {
+    @each $name, $value in $color-map {
+      --color-#{$name}: #{$value};
+    }
+  }
+}
+
+// Responsive Mixins
+@mixin media($breakpoint) {
+  $breakpoint-value: map.get($breakpoints, $breakpoint);
+  @if $breakpoint-value {
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+  }
+}
+
+// Mixin to generate responsive heading CSS variables at :root
+@mixin generate-heading-vars($map) {
+  // Base (desktop)
+  :root {
+    @each $name, $sizes in $map {
+      $desktop-size: list.nth($sizes, 1);
+      --#{$name}: #{$desktop-size};
+    }
+  }
+  // Tablet (less than lg)
+  @include media(lg) {
+    :root {
+      @each $name, $sizes in $map {
+        $tablet-size: list.nth($sizes, 2);
+        --#{$name}: #{$tablet-size};
+      }
+    }
+  }
+  // Mobile (less than md)
+  @include media(md) {
+    :root {
+      @each $name, $sizes in $map {
+        $mobile-size: list.nth($sizes, 3);
+        --#{$name}: #{$mobile-size};
+      }
+    }
+  }
+}

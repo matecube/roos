@@ -1,0 +1,109 @@
+// Import partials
+@use "variables" as *;
+@use "mixins" as *;
+@use "utilities" as *;
+
+// Generate CSS variables from color map
+@include generate-color-variables($colors);
+@include generate-heading-vars($heading-sizes);
+
+:root {
+  --gutter: 32px;
+  --fs-base: 16px;
+  --lh-base: 1.5;
+  --ff-base: "Sora", Arial, sans-serif;
+
+  @include media(md) {
+    --gutter: 16px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  padding: env(safe-area-inset);
+}
+
+body {
+  font: 400 var(--ff-base) / var(--lh-base) var(--ff-base);
+  color: var(--color-gray-700);
+  background-color: var(--color-white);
+  min-width: 320px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1,
+.h1 {
+  font-size: var(--h1);
+}
+
+h2,
+.h2 {
+  font-size: var(--h2);
+}
+
+h3,
+.h3 {
+  font-size: var(--h3);
+}
+
+h4,
+.h4 {
+  font-size: var(--h4);
+}
+
+h5,
+.h5 {
+  font-size: var(--h5);
+}
+
+h6,
+.h6 {
+  font-size: var(--h6);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: clip;
+}
+
+.main,
+.header,
+.footer {
+  min-width: 0;
+}
+
+.container {
+  max-width: 1312px;
+  padding-inline: var(--gutter);
+  margin-inline: auto;
+}

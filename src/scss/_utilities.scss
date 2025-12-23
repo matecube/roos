@@ -1,0 +1,183 @@
+@use "variables" as *;
+
+// Generate color utilities (text and background)
+// Loops through all colors in $colors map
+// Example: .color-gray-500 { color: var(--color-gray-500); }
+// Example: .bg-gray-500 { background-color: var(--color-gray-500); }
+@each $name, $value in $colors {
+  .color-#{$name} {
+    color: var(--color-#{$name});
+  }
+
+  .bg-#{$name} {
+    background-color: var(--color-#{$name});
+  }
+}
+
+// Spacing Utility Classes Generator
+// Generates Tailwind-like spacing utilities: m-*, p-*, mt-*, pt-*, etc.
+// With responsive variants: sm:*, md:*, lg:*, xl:*
+
+// Generate base spacing utilities
+@each $name, $value in $spacing-values {
+  // Margin utilities
+  .m-#{$name} {
+    margin: $value;
+  }
+  .mt-#{$name} {
+    margin-top: $value;
+  }
+  .mr-#{$name} {
+    margin-right: $value;
+  }
+  .mb-#{$name} {
+    margin-bottom: $value;
+  }
+  .ml-#{$name} {
+    margin-left: $value;
+  }
+  .mx-#{$name} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$name} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  // Padding utilities
+  .p-#{$name} {
+    padding: $value;
+  }
+  .pt-#{$name} {
+    padding-top: $value;
+  }
+  .pr-#{$name} {
+    padding-right: $value;
+  }
+  .pb-#{$name} {
+    padding-bottom: $value;
+  }
+  .pl-#{$name} {
+    padding-left: $value;
+  }
+  .px-#{$name} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$name} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+}
+
+// Generate responsive spacing utilities (desktop-first approach)
+// Base classes (py-12) apply to all sizes
+// Responsive classes (sm-py-16) apply on screens SMALLER than the breakpoint
+// Note: CSS doesn't allow colons in class names, so we use dash format: md-my-12
+// You can use it in HTML like: class="py-12 sm-py-16" (py-12 for all, py-16 on screens < sm)
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  // Calculate max-width (breakpoint - 1px) for desktop-first approach
+
+  @media (max-width: $breakpoint-value) {
+    @each $name, $value in $spacing-values {
+      // Margin utilities
+      .#{$breakpoint-name}-m-#{$name} {
+        margin: $value;
+      }
+      .#{$breakpoint-name}-mt-#{$name} {
+        margin-top: $value;
+      }
+      .#{$breakpoint-name}-mr-#{$name} {
+        margin-right: $value;
+      }
+      .#{$breakpoint-name}-mb-#{$name} {
+        margin-bottom: $value;
+      }
+      .#{$breakpoint-name}-ml-#{$name} {
+        margin-left: $value;
+      }
+      .#{$breakpoint-name}-mx-#{$name} {
+        margin-left: $value;
+        margin-right: $value;
+      }
+      .#{$breakpoint-name}-my-#{$name} {
+        margin-top: $value;
+        margin-bottom: $value;
+      }
+
+      // Padding utilities
+      .#{$breakpoint-name}-p-#{$name} {
+        padding: $value;
+      }
+      .#{$breakpoint-name}-pt-#{$name} {
+        padding-top: $value;
+      }
+      .#{$breakpoint-name}-pr-#{$name} {
+        padding-right: $value;
+      }
+      .#{$breakpoint-name}-pb-#{$name} {
+        padding-bottom: $value;
+      }
+      .#{$breakpoint-name}-pl-#{$name} {
+        padding-left: $value;
+      }
+      .#{$breakpoint-name}-px-#{$name} {
+        padding-left: $value;
+        padding-right: $value;
+      }
+      .#{$breakpoint-name}-py-#{$name} {
+        padding-top: $value;
+        padding-bottom: $value;
+      }
+    }
+  }
+}
+
+// Width and Height Utilities (Tailwind-like)
+// Generates: .w-12, .h-16, .sm-w-24, etc.
+@each $name, $value in $spacing-values {
+  .w-#{$name} {
+    width: $value;
+  }
+  .h-#{$name} {
+    height: $value;
+  }
+  .min-w-#{$name} {
+    min-width: $value;
+  }
+  .min-h-#{$name} {
+    min-height: $value;
+  }
+  .max-w-#{$name} {
+    max-width: $value;
+  }
+  .max-h-#{$name} {
+    max-height: $value;
+  }
+}
+// Use max-width and do not subtract 1px — just use $breakpoint-value directly
+@each $breakpoint-name, $breakpoint-value in $breakpoints {
+  @media (max-width: $breakpoint-value) {
+    @each $name, $value in $spacing-values {
+      .#{$breakpoint-name}-w-#{$name} {
+        width: $value;
+      }
+      .#{$breakpoint-name}-h-#{$name} {
+        height: $value;
+      }
+      .#{$breakpoint-name}-min-w-#{$name} {
+        min-width: $value;
+      }
+      .#{$breakpoint-name}-min-h-#{$name} {
+        min-height: $value;
+      }
+      .#{$breakpoint-name}-max-w-#{$name} {
+        max-width: $value;
+      }
+      .#{$breakpoint-name}-max-h-#{$name} {
+        max-height: $value;
+      }
+    }
+  }
+}
