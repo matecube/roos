@@ -2,6 +2,7 @@
 
 $colors: (
   "gray-500": #868181,
+  "gray-600": #686262,
   "gray-700": #4f4949,
   "green-600": #4d8e2f,
   "green-700": #385723,
@@ -27,7 +28,8 @@ $spacing-values: (
 
 // Breakpoints map (edit this to affect the whole spacing system)
 $breakpoints: (
-  sm: 575px,
+  xs: 479px,
+  sm: 574px,
   md: 767px,
   lg: 991px,
   xl: 1199px,

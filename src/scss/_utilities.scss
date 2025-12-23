@@ -69,6 +69,17 @@
     padding-top: $value;
     padding-bottom: $value;
   }
+
+  // Gap utilities
+  .gap-#{$name} {
+    gap: $value;
+  }
+  .gap-x-#{$name} {
+    column-gap: $value;
+  }
+  .gap-y-#{$name} {
+    row-gap: $value;
+  }
 }
 
 // Generate responsive spacing utilities (desktop-first approach)
@@ -129,6 +140,17 @@
       .#{$breakpoint-name}-py-#{$name} {
         padding-top: $value;
         padding-bottom: $value;
+      }
+
+      // Gap utilities
+      .#{$breakpoint-name}-gap-#{$name} {
+        gap: $value;
+      }
+      .#{$breakpoint-name}-gap-x-#{$name} {
+        column-gap: $value;
+      }
+      .#{$breakpoint-name}-gap-y-#{$name} {
+        row-gap: $value;
       }
     }
   }

@@ -11,13 +11,43 @@
   }
 }
 
-// Responsive Mixins
-@mixin media($breakpoint) {
-  $breakpoint-value: map.get($breakpoints, $breakpoint);
-  @if $breakpoint-value {
-    @media (max-width: $breakpoint-value) {
+// Responsive media mixin
+// Usage:
+//   @include media(md)            // < md (max-width)
+//   @include media("<", md)       // < md
+//   @include media("<= ", lg)     // <= lg (alias of < lg)
+//   @include media(">=", lg)      // >= lg (min-width)
+//   @include media(">", md)       // > md  (min-width just above md)
+@mixin media($arg1, $arg2: null) {
+  $op: "<"; // default to "less than"
+  $bp: $arg1;
+
+  @if $arg2 != null {
+    $op: $arg1;
+    $bp: $arg2;
+  }
+
+  $bp-value: map.get($breakpoints, $bp);
+
+  @if $bp-value == null {
+    @error "Unknown breakpoint `#{$bp}`. Check `$breakpoints` map.";
+  }
+
+  @if $op == "<" or $op == "<=" {
+    @media (max-width: $bp-value) {
       @content;
     }
+  } @else if $op == ">=" {
+    @media (min-width: $bp-value) {
+      @content;
+    }
+  } @else if $op == ">" {
+    // 1px above the breakpoint to avoid overlap with "<=" range
+    @media (min-width: $bp-value + 1px) {
+      @content;
+    }
+  } @else {
+    @error "Unsupported media operator `#{$op}`. Use '<', '<=', '>', '>='.";
   }
 }
 
@@ -46,6 +76,32 @@
         $mobile-size: list.nth($sizes, 3);
         --#{$name}: #{$mobile-size};
       }
+    }
+  }
+}
+
+// Input placeholder styling helper
+// Usage:
+// input {
+//   @include placeholder {
+//     color: #999;
+//     font-style: italic;
+//     opacity: 0.7;
+//   }
+// }
+// For focus state: &:focus { @include placeholder { color: #666; } }
+@mixin placeholder {
+  $selector: &;
+
+  @at-root {
+    #{$selector}::placeholder {
+      @content;
+    }
+    #{$selector}::-webkit-input-placeholder {
+      @content;
+    }
+    #{$selector}:-ms-input-placeholder {
+      @content;
     }
   }
 }

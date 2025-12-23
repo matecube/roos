@@ -1,0 +1,168 @@
+@use "mixins" as *;
+
+.f-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 36px 24px;
+
+  @include media(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media(sm) {
+    grid-template-columns: none;
+    gap: 24px;
+  }
+
+  .f-row-col {
+    &:nth-child(1) {
+      @include media(lg) {
+        order: 3;
+      }
+
+      @include media(sm) {
+        order: 1;
+      }
+    }
+    &:nth-child(2) {
+      @include media(lg) {
+        order: 1;
+      }
+    }
+    &:nth-child(3) {
+      @include media(lg) {
+        order: 2;
+      }
+    }
+    &:nth-child(4) {
+      @include media(lg) {
+        order: 4;
+      }
+    }
+  }
+}
+
+.f-logo {
+  padding: 8px;
+
+  &-hold {
+    display: grid;
+    grid-template-columns: none;
+    gap: 24px;
+
+    @include media(sm) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .f-social {
+      &-ttl {
+        @include media(sm) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &-sub {
+    max-width: 240px;
+
+    @include media(sm) {
+      display: none;
+    }
+  }
+}
+
+.f-copy {
+  display: block;
+
+  @include media(lg) {
+    text-align: center;
+  }
+}
+
+.f-nav {
+  &.is-open {
+    .f-nav-ttl {
+      &:after {
+        rotate: 45deg;
+      }
+    }
+  }
+  &-ttl {
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+    margin-bottom: 24px;
+
+    @include media(sm) {
+      margin-bottom: 0;
+    }
+
+    &:after {
+      content: "\e906";
+      font-family: "icomoon" !important;
+      font-size: 1em;
+      line-height: 1;
+      flex: 0 0 1em;
+      height: 1em;
+      align-self: center;
+      display: none;
+      transition: rotate 0.2s ease;
+
+      @include media(sm) {
+        display: inline-flex;
+      }
+    }
+  }
+
+  &-content {
+    ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: none;
+      row-gap: 16px;
+
+      @include media(sm) {
+        padding-top: 12px;
+        row-gap: 12px;
+      }
+
+      a {
+        color: var(--color-gray-700);
+        text-decoration: none;
+
+        &:hover {
+          color: var(--color-green-600);
+        }
+      }
+    }
+  }
+}
+
+.f-news {
+  display: grid;
+  grid-template-columns: none;
+  row-gap: 24px;
+
+  &-ttl {
+    margin-bottom: 0;
+
+    @include media(sm) {
+      display: none;
+    }
+  }
+
+  &-sub {
+    @include media(sm) {
+      max-width: 315px;
+    }
+  }
+
+  .news-form {
+    @include media(">=", "sm") {
+      min-width: 300px;
+    }
+  }
+}
