@@ -1,0 +1,67 @@
+@use "mixins" as *;
+
+:root {
+  --swiper-pagination-color: var(--color-green-600);
+  --swiper-pagination-bullet-inactive-color: var(--color-gray-100);
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+  --swiper-pagination-bullet-height: 12px;
+  --swiper-pagination-bullet-width: 12px;
+  --swiper-pagination-bottom: 0;
+
+  @include media(md) {
+    --swiper-pagination-bullet-height: 8px;
+    --swiper-pagination-bullet-width: 8px;
+  }
+}
+
+.swiper-pagination-bullets-dynamic {
+  height: 20px;
+  display: flex;
+  align-items: center;
+
+  @include media(md) {
+    height: 14px;
+  }
+
+  .swiper-pagination-bullet {
+    flex: 0 0 var(--swiper-pagination-bullet-width);
+  }
+  .swiper-pagination-bullet-active {
+    transform: scale(1.3333);
+
+    @include media(md) {
+      transform: scale(1.5);
+    }
+  }
+  .swiper-pagination-bullet-active-next,
+  .swiper-pagination-bullet-active-prev,
+  .swiper-pagination-bullet-active-prev-prev,
+  .swiper-pagination-bullet-active-next-next {
+    transform: scale(1);
+  }
+}
+
+.cd-carousel {
+  @include media(sm) {
+    padding-left: var(--gutter);
+    margin-inline: calc(var(--gutter) * -1);
+  }
+  .swiper {
+    padding-bottom: 50px;
+
+    @include media(md) {
+      padding-bottom: 42px;
+    }
+  }
+
+  .swiper-slide {
+    display: flex;
+    height: auto;
+
+    .cd,
+    .cr {
+      flex: 1;
+    }
+  }
+}

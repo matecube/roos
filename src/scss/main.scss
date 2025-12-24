@@ -5,6 +5,9 @@
 
 @use "icomoon" as *;
 @use "footer" as *;
+@use "swiper-custom" as *;
+
+@import "swiper-bundle.min.css";
 
 // Generate CSS variables from color map
 @include generate-color-variables($colors);
@@ -26,6 +29,10 @@
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+
+  --btn-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
 
   @include media(md) {
     --fs-lg: 18px;
@@ -240,7 +247,7 @@ button {
     font-weight: 400;
     min-width: 0;
     width: 100%;
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--color-gray-100);
     border-radius: var(--radius-xs);
 
     @include placeholder {
@@ -264,7 +271,7 @@ button {
     border-radius: var(--radius-sm);
     cursor: pointer;
     text-align: center;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: var(--btn-shadow);
 
     &:hover {
       border-color: var(--color-gray-500);
@@ -332,12 +339,6 @@ button {
   object-fit: cover;
 }
 
-.cd-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
 .cd {
   display: flex;
   flex-direction: column;
@@ -350,18 +351,20 @@ button {
     height: auto;
     aspect-ratio: 310/240;
 
+    @include media(sm) {
+      aspect-ratio: 300/240;
+    }
+
     img {
       @extend .bg-str;
     }
   }
 
   &-info {
-    display: grid;
-    grid-template-columns: unset;
-    gap: 6px;
     padding-top: 16px;
     display: flex;
     flex-direction: column;
+    gap: 7px;
     flex: 1;
 
     &-up {
@@ -386,13 +389,21 @@ button {
       &__lu {
         display: flex;
         align-items: flex-end;
-        gap: 8px;
+        flex-wrap: wrap;
+        gap: 2px 8px;
         color: var(--color-gray-700);
       }
 
       &__ld {
         display: flex;
-        gap: 8px;
+        flex-wrap: wrap;
+        gap: 2px 8px;
+
+        span {
+          &:first-child {
+            white-space: nowrap;
+          }
+        }
       }
 
       &__lp {
@@ -400,10 +411,12 @@ button {
         line-height: 100%;
         font-weight: 600;
         color: var(--color-green-600);
+        white-space: nowrap;
       }
 
       &__r {
         flex-shrink: 0;
+        align-self: flex-end;
       }
     }
   }
@@ -412,7 +425,7 @@ button {
     border-radius: var(--radius-sm);
     background-color: var(--color-green-600);
     color: var(--color-white);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: var(--btn-shadow);
     border: none;
     width: 48px;
     height: 48px;
@@ -427,14 +440,17 @@ button {
     .icon-cart {
       font-size: 24px;
       line-height: 1;
+
+      @include media(md) {
+        font-size: 20px;
+      }
     }
   }
 
   &-ttl {
     line-height: 140%;
     color: var(--color-gray-700);
-    transition: color 0.1s ease;
-    margin-bottom: 0;
+    margin-bottom: 3px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -443,7 +459,6 @@ button {
     text-overflow: ellipsis;
 
     a {
-      text-decoration: none;
       text-decoration: none;
       color: inherit;
 
@@ -457,5 +472,204 @@ button {
     font-size: var(--fs-sm);
     line-height: 150%;
     color: var(--color-gray-500);
+  }
+}
+
+.cr {
+  &-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-2xl);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 644/310;
+
+    @include media(sm) {
+      aspect-ratio: 300/310;
+    }
+
+    img {
+      @extend .bg-str;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 8px 0 0;
+
+    @include media(lg) {
+      padding-right: 0;
+    }
+
+    &__l {
+      display: flex;
+      flex: 1;
+      gap: 4px 16px;
+    }
+
+    &__r {
+      @include media(sm) {
+        display: none;
+      }
+    }
+
+    &-txt {
+      flex: 1;
+      align-self: center;
+    }
+  }
+
+  &-logo {
+    align-self: flex-start;
+    flex: 0 0 48px;
+    width: 48px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: var(--color-white);
+
+    img {
+      max-height: 100%;
+    }
+  }
+
+  &-ttl {
+    font-weight: 600;
+    line-height: 130%;
+    color: var(--color-gray-700);
+    margin-bottom: 0;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        color: var(--color-green-600);
+      }
+    }
+  }
+
+  &-sub {
+    font-size: var(--fs-sm);
+    line-height: 150%;
+    color: var(--color-green-700);
+  }
+
+  &-btn {
+    display: block;
+    font-weight: 600;
+    font-size: var(--fs-base);
+    line-height: normal;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--btn-shadow);
+    background-color: var(--color-white);
+    color: var(--color-gray-700);
+    min-width: 145px;
+    text-align: center;
+    padding: 13px 20px;
+    text-decoration: none;
+
+    @include media(lg) {
+      font-size: var(--fs-sm);
+      min-width: unset;
+    }
+
+    &:hover {
+      background-color: var(--color-gray-100);
+    }
+  }
+}
+
+.ac {
+  display: flex;
+  gap: 16px;
+  height: 480px;
+
+  &-card {
+    flex-basis: 136px;
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.active {
+      flex-basis: calc(100% - (3 * 136px) - (3 * 16px));
+
+      .ac-card-gradient {
+        height: 50%;
+      }
+
+      .ac-card-ttl {
+        font-size: var(--h3);
+      }
+
+      .ac-card-content {
+        padding: 48px;
+
+        &__in {
+          rotate: 0deg;
+          translate: 0 0;
+        }
+      }
+    }
+
+    &-img {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &-gradient {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+      opacity: 0.6;
+      z-index: 2;
+      transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &-content {
+      color: var(--color-white);
+      position: absolute;
+      z-index: 3;
+      bottom: 0;
+      left: 0;
+      white-space: nowrap;
+      padding: 32px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &__in {
+        transform-origin: left bottom;
+        rotate: -90deg;
+        translate: 73px -15px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    }
+
+    &-ttl {
+      font-weight: 600;
+      font-size: var(--h4);
+      line-height: 130%;
+      margin-bottom: 5px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &-sub {
+      font-size: var(--fs-lg);
+      line-height: 140%;
+    }
   }
 }
