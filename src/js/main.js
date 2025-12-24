@@ -19,6 +19,9 @@ function debounce(func, wait) {
 }
 
 function initAcc() {
+  const isTouchDevice =
+    "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
   $(".ac").each(function () {
     const $ac = $(this);
     const $cards = $ac.find(".ac-card");
@@ -26,6 +29,7 @@ function initAcc() {
     let currentIndex = 0;
     let intervalId = null;
     let isHovered = false;
+    let autoplayStoppedByTap = false;
 
     function activateCard(index) {
       $cards.removeClass("active");
@@ -33,7 +37,8 @@ function initAcc() {
     }
 
     function startAutoChange() {
-      if (intervalId) return;
+      if (intervalId || autoplayStoppedByTap) return;
+      if ($(window).width() <= 991) return;
       intervalId = setInterval(() => {
         if (!isHovered) {
           currentIndex = (currentIndex + 1) % $cards.length;
@@ -47,25 +52,52 @@ function initAcc() {
       intervalId = null;
     }
 
-    $ac.on("mouseenter", function () {
-      isHovered = true;
-      stopAutoChange();
-    });
+    if (isTouchDevice) {
+      $ac.on("touchend", ".ac-card", function (e) {
+        e.stopPropagation();
+        currentIndex = $cards.index(this);
+        activateCard(currentIndex);
+        stopAutoChange();
+        autoplayStoppedByTap = true;
+      });
 
-    $ac.on("mouseleave", function () {
-      isHovered = false;
-      startAutoChange();
-    });
+      $(document).on("touchend", function (e) {
+        if (autoplayStoppedByTap) {
+          if ($(e.target).closest(".ac").length === 0) {
+            autoplayStoppedByTap = false;
+            startAutoChange();
+          }
+        }
+      });
+    } else {
+      $ac.on("mouseenter", function () {
+        isHovered = true;
+        stopAutoChange();
+      });
 
-    $ac.on("mouseenter", ".ac-card", function () {
-      $cards.removeClass("active");
-      $(this).addClass("active");
-      currentIndex = $cards.index(this);
-    });
+      $ac.on("mouseleave", function () {
+        isHovered = false;
+        startAutoChange();
+      });
 
-    // Start automatic change immediately
+      $ac.on("mouseenter", ".ac-card", function () {
+        $cards.removeClass("active");
+        $(this).addClass("active");
+        currentIndex = $cards.index(this);
+      });
+    }
+
     activateCard(currentIndex);
     startAutoChange();
+
+    function handleResize() {
+      stopAutoChange();
+      if ($(window).width() > 991 && !autoplayStoppedByTap) {
+        startAutoChange();
+      }
+    }
+
+    $(window).on("resize", debounce(handleResize, 150));
   });
 }
 
@@ -91,11 +123,11 @@ function initCardCarousel() {
       spaceBetween: 24,
       loop: true,
       initialSlide: middleSlide,
-      // autoplay: {
-      //   delay: 3500,
-      //   disableOnInteraction: true,
-      //   pauseOnMouseEnter: true,
-      // },
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: true,
+        pauseOnMouseEnter: true,
+      },
       pagination: {
         el: $this.find(".swiper-pagination")[0],
         clickable: true,
@@ -7895,4 +7927,3 @@ var Swiper = (function () {
   ];
   return (ne.use(be), ne);
 })();
-//# sourceMappingURL=swiper-bundle.min.js.map

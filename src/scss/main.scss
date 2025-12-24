@@ -592,18 +592,46 @@ button {
   gap: 16px;
   height: 480px;
 
+  @include media(lg) {
+    height: auto;
+    flex-direction: column;
+  }
+
   &-card {
     flex-basis: 136px;
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
+    transform: translateZ(0);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @include media(lg) {
+      display: flex;
+      align-items: center;
+    }
+
+    @include media(md) {
+      flex-basis: 108px;
+    }
 
     &.active {
       flex-basis: calc(100% - (3 * 136px) - (3 * 16px));
 
+      @include media(lg) {
+        flex-basis: 400px;
+        align-items: flex-end;
+      }
+
+      @include media(md) {
+        flex-basis: 320px;
+      }
+
       .ac-card-gradient {
         height: 50%;
+
+        @include media(lg) {
+          height: 100%;
+        }
       }
 
       .ac-card-ttl {
@@ -612,6 +640,10 @@ button {
 
       .ac-card-content {
         padding: 48px;
+
+        @include media(lg) {
+          padding: 24px 32px;
+        }
 
         &__in {
           rotate: 0deg;
@@ -639,6 +671,10 @@ button {
       opacity: 0.6;
       z-index: 2;
       transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      @include media(lg) {
+        height: 100%;
+      }
     }
 
     &-content {
@@ -651,11 +687,21 @@ button {
       padding: 32px;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
+      @include media(lg) {
+        position: relative;
+        padding: 24px 32px;
+      }
+
       &__in {
         transform-origin: left bottom;
         rotate: -90deg;
         translate: 73px -15px;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        @include media(lg) {
+          rotate: 0deg;
+          translate: 0 0;
+        }
       }
     }
 
