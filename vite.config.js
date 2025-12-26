@@ -7,6 +7,7 @@ import prettier from "prettier";
 import posthtmlPlugin from "./vite-plugin-posthtml.js";
 import optimizeImagesPlugin from "./vite-plugin-optimize-images.js";
 import copyFontsPlugin from "./vite-plugin-copy-fonts.js";
+import copyJsLibsPlugin from "./vite-plugin-copy-js-libs.js";
 
 // Plugin to prettify HTML files after build and fix relative paths
 function prettifyHtmlPlugin() {
@@ -24,10 +25,14 @@ function prettifyHtmlPlugin() {
         html = html.replace(/src="\/assets\//g, 'src="./assets/');
         html = html.replace(/href="\/assets\//g, 'href="./assets/');
 
-        // Remove type="module" and crossorigin for file:// protocol compatibility
-        html = html.replace(/type="module"/g, "");
-        html = html.replace(/crossorigin="?"/g, "");
-        html = html.replace(/crossorigin/g, "");
+        // Remove type="module", crossorigin, and integrity for file:// protocol compatibility
+        // These attributes cause CORS issues when opening HTML files directly from the file system
+        html = html.replace(/\s+type="module"/g, "");
+        html = html.replace(/\s+crossorigin="[^"]*"/g, "");
+        html = html.replace(/\s+crossorigin='[^']*'/g, "");
+        html = html.replace(/\s+crossorigin/g, "");
+        html = html.replace(/\s+integrity="[^"]*"/g, "");
+        html = html.replace(/\s+integrity='[^']*'/g, "");
 
         try {
           const prettified = await prettier.format(html, {
@@ -101,12 +106,13 @@ export default defineConfig({
       },
     },
     cssCodeSplit: false,
-    minify: "esbuild",
+    minify: false,
   },
   plugins: [
     posthtmlPlugin(),
     optimizeImagesPlugin(),
     copyFontsPlugin(),
+    copyJsLibsPlugin(),
     prettifyHtmlPlugin(),
   ],
 });

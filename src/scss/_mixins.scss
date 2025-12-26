@@ -105,3 +105,71 @@
     }
   }
 }
+
+// Custom scrollbar styling mixin
+// Provides cross-browser scrollbar customization (WebKit browsers + Firefox)
+// Usage:
+//   .dropdown {
+//     height: 400px;
+//     overflow-y: auto;
+//     @include custom-scrollbar();
+//   }
+// With custom values:
+//   @include custom-scrollbar(10px, var(--color-gray-500), var(--color-gray-200));
+// Parameters:
+//   $width: Scrollbar width (default: 12px)
+//   $thumb-color: Scrollbar thumb color (default: var(--color-gray-400))
+//   $track-color: Scrollbar track color (default: var(--color-gray-100))
+//   $thumb-hover: Thumb color on hover (optional, uses opacity filter if not provided)
+// Note: Firefox has limited customization (only width and colors)
+@mixin custom-scrollbar(
+  $width: 12px,
+  $thumb-color: var(--color-gray-400),
+  $track-color: var(--color-gray-100),
+  $thumb-hover: null
+) {
+  // Firefox scrollbar styling
+  scrollbar-width: thin;
+  scrollbar-color: $thumb-color $track-color;
+
+  // WebKit browsers (Chrome, Safari, Edge, Opera)
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width; // For horizontal scrollbars
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+    border-radius: calc($width / 2);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: calc($width / 2);
+    border: 2px solid $track-color; // Creates padding effect
+
+    @if $thumb-hover {
+      &:hover {
+        background-color: $thumb-hover;
+      }
+
+      &:active {
+        background-color: $thumb-hover;
+        opacity: 0.8;
+      }
+    } @else {
+      &:hover {
+        opacity: 0.85;
+      }
+
+      &:active {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // Optional: Style scrollbar corner (where vertical and horizontal meet)
+  &::-webkit-scrollbar-corner {
+    background: $track-color;
+  }
+}
