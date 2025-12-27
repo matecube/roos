@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&display=swap" rel="stylesheet" />
+    <title>Home Page</title>
+    <script src="./assets/js/main.js"></script>
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header id="header" class="header lg-py-16 py-32 _show">
+        <div class="container">
+          <div class="h">
+            <div class="h-left">
+              <a href="#!" class="h-logo">
+                <img src="./assets/images/roos-logo.svg" alt="Roos Logo" />
+              </a>
+
+              <div class="h-cat">
+                <button class="h-cat-btn" type="button">Categories <i class="icon-chevron-down"></i></button>
+                <div class="h-cat-drop">
+                  <div class="h-cat-drop-in">
+                    <ul class="h-cat-list">
+                      <li>
+                        <a href="#!">Ford Transit</a>
+                      </li>
+                      <li><a href="#!">Ford eTransit</a></li>
+                      <li><a href="#!">Mercedes Sprinter</a></li>
+                      <li><a href="#!">Mercedes eSprinter</a></li>
+                      <li><a href="#!">Ford Custom</a></li>
+                      <li><a href="#!">Mercedes Vito</a></li>
+                      <li><a href="#!">Mercedes eVito </a></li>
+                      <li><a href="#!">Peugeot Boxer</a></li>
+                      <li><a href="#!">Citroën Jumpy</a></li>
+                      <li><a href="#!">Fiat Ducato</a></li>
+                      <li><a href="#!">Individual Parts</a></li>
+                      <li><a href="#!">Application Guides</a></li>
+                      <li>
+                        <a href="#!">Ford Transit</a>
+                      </li>
+                      <li><a href="#!">Ford eTransit</a></li>
+                      <li><a href="#!">Mercedes Sprinter</a></li>
+                      <li><a href="#!">Mercedes eSprinter</a></li>
+                      <li><a href="#!">Ford Custom</a></li>
+                      <li><a href="#!">Mercedes Vito</a></li>
+                      <li><a href="#!">Mercedes eVito </a></li>
+                      <li><a href="#!">Peugeot Boxer</a></li>
+                      <li><a href="#!">Citroën Jumpy</a></li>
+                      <li><a href="#!">Fiat Ducato</a></li>
+                      <li><a href="#!">Individual Parts</a></li>
+                      <li><a href="#!">Application Guides</a></li>
+                    </ul>
+                  </div>
+                  <div class="h-cat-drop-bot">24 categories</div>
+                </div>
+              </div>
+            </div>
+            <div class="h-right">
+              <div class="h-search-wrap">
+                <form action="#!" class="h-search">
+                  <div class="h-search-in">
+                    <i class="h-search-icon icon-magnifying-glass"></i>
+                    <input class="h-search-input" type="text" placeholder="Search..." name="" id="" />
+                    <!-- icon-check-circle is hidden but present in design (mobile), should be connected with backend search logic -->
+                    <i style="display: none" class="icon-check-circle"></i>
+                  </div>
+                  <button type="button" id="search-mobile-close" class="h-search-close">
+                    <i class="icon-x"></i>
+                  </button>
+                </form>
+                <!-- Display property should be controlled within search logic -->
+                <div id="search-results" class="h-search-results" style="display: none">
+                  <div class="h-search-results-in">
+                    <span class="h-search-results-ttl">Search results</span>
+                    <ul class="h-search-results-list">
+                      <li>
+                        <a href="#!">Pre-2024 FITTING GUIDE - Ford Transit L3H3 (IT)</a>
+                      </li>
+                      <li><a href="#!">Cab Label Kit Ice Ford Transit (DE)</a></li>
+                    </ul>
+                    <div class="h-search-results-in-bot">
+                      <a href="#!" class="h-search-results-btn">View all 16 results</a>
+                    </div>
+                  </div>
+                  <div class="h-search-results-in mobile-full">
+                    <span class="h-search-results-ttl">Categories</span>
+                    <ul class="h-search-results-list">
+                      <li>
+                        <a href="#!">Ford Transit</a>
+                      </li>
+                      <li><a href="#!">Ford eTransit</a></li>
+                      <li><a href="#!">Mercedes Sprinter</a></li>
+                      <li><a href="#!">Mercedes eSprinter</a></li>
+                      <li><a href="#!">Ford Custom</a></li>
+                      <li><a href="#!">Mercedes Vito</a></li>
+                      <li><a href="#!">Mercedes eVito </a></li>
+                      <li><a href="#!">Peugeot Boxer</a></li>
+                      <li><a href="#!">Citroën Jumpy</a></li>
+                      <li><a href="#!">Fiat Ducato</a></li>
+                      <li><a href="#!">Individual Parts</a></li>
+                    </ul>
+                    <div class="h-search-results-in-bot"><span class="h-search-results-btn">24 categories</span></div>
+                  </div>
+                </div>
+              </div>
+              <button id="search-mobile-open" class="h-btn-search">
+                <i class="icon-magnifying-glass"></i>
+              </button>
+              <button type="button" class="h-btn">
+                <i class="icon-cart"></i>
+              </button>
+              <a href="#!" class="h-btn tablet-hidden">
+                <i class="icon-user"></i>
+              </a>
+              <button id="menu-mobile-open" type="button" class="h-btn desktop-hidden">
+                <i class="icon-list"></i>
+              </button>
+              <div class="menu" id="menu-mobile">
+                <div class="menu-panel _left">
+                  <div class="menu-head">
+                    <h3 class="menu-head-ttl">Navigation Menu</h3>
+                    <button class="menu-head-btn" id="menu-mobile-close" type="button">
+                      <i class="icon-x"></i>
+                    </button>
+                  </div>
+                  <div class="menu-content">
+                    <div class="menu-content__in">
+                      <ul class="menu-list">
+                        <li>
+                          <a href="#!"><i class="icon-user"></i><span>My Account</span></a>
+                        </li>
+                        <li>
+                          <a href="#!"><i class="icon-package"></i><span>My Orders</span></a>
+                        </li>
+                        <li>
+                          <a href="#!" data-submenu="categories"
+                            ><i class="icon-squares"></i><span>Categories</span><i class="icon-chevron-right"></i
+                          ></a>
+                        </li>
+                        <li>
+                          <a href="#!"><i class="icon-signout"></i><span>Logout</span></a>
+                        </li>
+                      </ul>
+                      <div class="menu-bot">
+                        <div class="menu-bot__ttl">Switch language:</div>
+                        <div class="menu-bot__btns">
+                          <a href="#!" class="menu-bot-btn active">English</a>
+                          <a href="#!" class="menu-bot-btn">Deutsch</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-panel _right">
+                  <div class="menu-head">
+                    <button class="menu-head-btn _back" id="menu-mobile-back" type="button">
+                      <i class="icon-chevron-left"></i>
+                    </button>
+                    <h3 class="menu-head-ttl">Categories</h3>
+                  </div>
+                  <div class="menu-content">
+                    <div class="menu-content__in" id="menu-mobile-categories">
+                      <ul class="menu-list">
+                        <li>
+                          <a href="#!">Ford Transit</a>
+                        </li>
+                        <li><a href="#!">Ford eTransit</a></li>
+                        <li><a href="#!">Mercedes Sprinter</a></li>
+                        <li><a href="#!">Mercedes eSprinter</a></li>
+                        <li><a href="#!">Ford Custom</a></li>
+                        <li><a href="#!">Mercedes Vito</a></li>
+                        <li><a href="#!">Mercedes eVito </a></li>
+                        <li><a href="#!">Peugeot Boxer</a></li>
+                        <li><a href="#!">Citroën Jumpy</a></li>
+                        <li><a href="#!">Fiat Ducato</a></li>
+                        <li><a href="#!">Individual Parts</a></li>
+                        <li><a href="#!">Application Guides</a></li>
+                        <li>
+                          <a href="#!">Ford Transit</a>
+                        </li>
+                        <li><a href="#!">Ford eTransit</a></li>
+                        <li><a href="#!">Mercedes Sprinter</a></li>
+                        <li><a href="#!">Mercedes eSprinter</a></li>
+                        <li><a href="#!">Ford Custom</a></li>
+                        <li><a href="#!">Mercedes Vito</a></li>
+                        <li><a href="#!">Mercedes eVito </a></li>
+                        <li><a href="#!">Peugeot Boxer</a></li>
+                        <li><a href="#!">Citroën Jumpy</a></li>
+                        <li><a href="#!">Fiat Ducato</a></li>
+                        <li><a href="#!">Individual Parts</a></li>
+                        <li><a href="#!">Application Guides</a></li>
+                      </ul>
+                      <div class="menu-list-sub">24 categories</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="main" aria-label="Main content">
+        <section class="lg-pt-32 pt-48 pb-32">
+          <div class="container">
+            <div class="ac">
+              <div class="ac-card active">
+                <div class="ac-card-content">
+                  <div class="ac-card-content__in">
+                    <p class="ac-card-ttl">Amazon Sticker</p>
+                    <p class="ac-card-sub">Order branding materials</p>
+                  </div>
+                </div>
+                <div class="ac-card-gradient"></div>
+                <img
+                  alt=""
+                  class="ac-card-img"
+                  srcset="./assets/images/ac01@2x.jpg 2x"
+                  src="./assets/images/ac01.jpg"
+                />
+              </div>
+              <div class="ac-card">
+                <div class="ac-card-content">
+                  <div class="ac-card-content__in">
+                    <p class="ac-card-ttl">Geotab</p>
+                    <p class="ac-card-sub">Fleet management solutions</p>
+                  </div>
+                </div>
+                <div class="ac-card-gradient"></div>
+                <img
+                  alt=""
+                  class="ac-card-img"
+                  srcset="./assets/images/ac02@2x.jpg 2x"
+                  src="./assets/images/ac02.jpg"
+                />
+              </div>
+              <div class="ac-card">
+                <div class="ac-card-content">
+                  <div class="ac-card-content__in">
+                    <p class="ac-card-ttl">Services</p>
+                    <p class="ac-card-sub">Car fleet maintenance</p>
+                  </div>
+                </div>
+                <div class="ac-card-gradient"></div>
+                <img
+                  alt=""
+                  class="ac-card-img"
+                  srcset="./assets/images/ac03@2x.jpg 2x"
+                  src="./assets/images/ac03.jpg"
+                />
+              </div>
+              <div class="ac-card">
+                <div class="ac-card-content">
+                  <div class="ac-card-content__in">
+                    <p class="ac-card-ttl">Apolo</p>
+                    <p class="ac-card-sub">Solar solutions</p>
+                  </div>
+                </div>
+                <div class="ac-card-gradient"></div>
+                <img
+                  alt=""
+                  class="ac-card-img"
+                  srcset="./assets/images/ac04@2x.jpg 2x"
+                  src="./assets/images/ac04.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-48 lg-py-32">
+          <div class="container">
+            <h2 class="h4 mb-32 color-black">Popular categories</h2>
+            <div class="cd-carousel" data-cols="2">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="cr">
+                      <div class="cr-img">
+                        <img
+                          alt="Fiat Ducato"
+                          srcset="./assets/images/img01@2x.jpg 2x"
+                          src="./assets/images/img01.jpg"
+                        />
+                      </div>
+                      <div class="cr-info">
+                        <div class="cr-info__l">
+                          <div class="cr-logo">
+                            <img
+                              alt="Fiat Logo"
+                              srcset="
+                                data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAhlSURBVHgB7VrNj1xHEf91v/fmYz/sdXa963UiEsACyeLDwRDzpUBACCRAXIgUIQ7cEAci/BeEC5wAoYgDQihIHOCEIDkiEKtEyHzIIGGZfDl24thej73r3Z3d+Xzvdad6dmb3dXe9eTO+5v0unleu7q6qrqqu6l6gRIkSJUqUKFGiRIkSJUq8+yA44uM4+aiAClEAGcrKteTWxTeB7sex/L465JIEtL1AEKzh5j+xTw+/GK5+Kkl0FxMggQ420X79Fexu02dqaGeB6BhWz8XQPUyBBGj/Hbcvu3RPyWeDT39nR/d+gwkwQzb6PeKPvYm7/31ULP7oPWLmKZenCtlbUzdr5vcZLMx9Qz3y4o7sTzL9wGLHRKX1/fTC3IjWw8kTX5cPv9TEZHNk8U289/x5deHnWZprABnr9JnOvrEnEFCgBqHM70SoRpfGaZ/tYLcXECVt2otJ5ze4o7sz38KpJ3+HK3+gTxWjn3annGOEGaTP0D/PmnlGNOkykQKPYEKY+CGVR3Owbq0zJnkZd3XkLzkWCcl6Vi7+Ghmh7x9i4RSFUJbieoDikgKtnM4jDEJH+LoIMYf6jPm9i7gjyMba94EDQjSYyl1BqxoCGhkRn9Ax0nAHcSyHggoIQbt95PNY+dAaGpfnEIXHUcdIloA4Guimwvx01aX5llAjF9233bKoYxtLFWCjl2cAw6rhSDlDiexvav1rV9G+lKVXaPcltm+Z330kHc54ScYAtJh2DRQikP9RW1/+E6792Xw/hgcXn5QPbWzhMMe1kOjHxMov1nTjiYtYv/ETtV6tD+e9CMQ/Fp94dU/EH3DX7ur03+f1hXMY6kkJVGw4SdozgBjIbLsJWZL8u9e6iq3ryIFSsst5d2QvpoXjAUaaAGp+9P0v3Nz8ql65TIynxXAjzL8nxeznhu6l/w87A9L2551Yo7A0OhljeeBywPTZZSCkyskB4sDiV8hOrgcYv20hzca3eFGvf6/mePQO6fwEVs6BObo7iNnEQvRdFMAbSOfrfRkgCoJOzn/pnN8DmMUoorMG0H/F+ktHUbEU7SHVHxQP/ICbYxahZxRDoNBpogCeARKkMceohsddHtI0vS8DGFIFwjP6Xd35n0MSD4u5r4BdQHNkSCG2UADPABSjU1VYI5B1uoIpLLXHZiOkMXfQ8TR4TTSfk858VQQLp03udZCyepi8pKc3AInMllgCOWYeYhNxP2QM4FC08ASQpqjxDPO2aj9fd/KAKaJqWH2/y5swopl576C7jQJ4BqC4YZMZGxfWRLmGs5RTPI+nwT9w+0bdSe6m0jyF2hdc3go5u0sbNB6Q03tAohUbyxHGI4ViDaAnIAk+vyRUBVpZXNHQE6L+JWZKtqmrIJjeA0icFseYFIQAHVts7uhT9rYpWjNCsAn2nu5fcWkLonbGpSnGAOQVeAt7058C0oQag4BX8GDhPA8IvArV322RqRWy2BCdi65mVJUe98fLHA/AHgrgVVANqvgeopM5KxHtIj4sjz19GkfXRzQ6p2s/VZeeHn1HCFkPCHzlrG/j1otB9eRn0+WPZneSdjDZRfrGCVIve8xRM2V6D5Gdh9N+UDJCTG+AwPQ1DkyTu4Tqt7O0Y6iaZHlggOvYS0z11nUKST/B2SFAra06o5d+GzCbSEWZ6Qat3sR8rGK1vo719uEawhscEXUXXdabs/AMQHvAxg2zjdpeUCZ6fJpgx5HwdD0ytsaylDObsYAd44oHyrUQC/94FeS5/cKbJy4HFCYODimChKPTDlraiYKKsghUEpMHzFl5IK8UlggLDeB5wC20mw9SqskWF+Y+4CjtcfYy4wFUa9lxM+jG/AKubHZOMB5hzvF5mp3zoE30qNMRUYbfNMorzhxsEtzCTJeJaEc+B5GSTe34xRxdhrygrn/kAhqXXHYMa6RZ8gA+AGyF24gtD6ClxNvY+9Vz6rXvMoPlz+Qn043MZZPZmGXUl7NMnAECmnkejaSB8WBqaO2FwH5GTReZ8fEhT5Sw2+DN7x95SovZHHaKH+WFTB/6uC0fVwhp034XdraeAah8bPKMeuxl3hUEKmTqKu0VPky7LXRuXkicu0Y9SILVRVs2MWb4eHgS30C7VWEUMff7GIMIDcWFAF1KOGTB7UquAagGsY4yY4CqlEccmidwylScHLyBFNRtzUs41gNqgwtVfyfmnO5VMx4w7mSgKs8rZrSZ1paNOwUKd9+AOQY1WzwoxGM9gLvu2h9n74Rk4lKM8YAt3fYNQE7gzMlATHSz5Y1VqLTcmOoN2tCFogv9PCWcY8/2gP0L1zTXXSn09nyaqtrfvgdQW1/UwQ/gKbWJVi9y5jN37/eQFL0VsgYYlrKZBe2d2b8Vzg8BrjlTzhsAfwxiovdH5hiMev6Cms5UOTYEkNMuK4/sKmv8WeYaoDl4cHHntCvfnBxwfwY4il7fZzKNRfFrMRgjVJxa6x566STjRqBmybugCaG9Ysrl2c252XLhGWAH1b6bzc1q9WIPAN/ra6cXsLOzWSlm7gRHCIXwFEknKHBSrVuYAJ4BmribBo4BzBdVX4UeoJizNxi8+R2COKzktJ8D5MSF0FCevk/yUHgXYOAZ4AhjXSMkJcbiP5hgxlJStb6581mMTYLCC0nheAX/oJtMZABPKXp3S8yrb00fymm6wFjq+aIH6poIKjXtRYpV51dEEGWfvcRg/mA+b066Gq8bfp3hr1FzluVZFPXqhu5YczbMnxJMAG5X1fPp1bPNjMubPqCB1hsYD/HH9K3PtOmNKEukh88eDq+wxF/U7aeoapxNDv5fi23Et/LmXFPrP1xE9ZdZfkpwN7I8L6TXHt/JrGt4qI2+jRIlSpQoUaJEiRIlSpQoUYLFO46RG9ez5iUBAAAAAElFTkSuQmCC 2x
+                              "
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOrSURBVHgB7ZbPixRHFMe/r3pmdnV1syFmNzGE/IAcAgkkrhoMXvcUCIQcDOSSPyGnxOAhP9iNEAhCCCTkFpIcIiiIXkTQmwd/yyIi6iqjLqi4rs7s/Ojpquer7qqe6tHWPXqYBzNV86q66vO+r171AEMb2tCebbRK32rGyifPqa27Gtz9NBysQY3+xGenv482HesaXbO+y+rh7D597eCPatOpNmtdXIzUJV7asR/1ha/V+3+OsvrwSZtOUO3gTnNy1vYrfbeZVUQDdIRpBlVZvdsj85L1JTDrbaugphWZxxbfpl49t1/XXwDzRllv65MAhNr6iwAUbNrl5IBsVKtAVU8D/Al07OeJ32QAud29gebuN7H+Ww2eWubuuo8wOXmf4sMd6IUK0yvjVNthJ1ah+A7av7ShX/QPV8JoMwfhP57/4jrQCbQQAM7GddZhNyLq3PuHr+yZwev/b1EbbjKYttPUnl/N/Jd22md4a8YDjEB1/jAXdyIwhdUYI+53i7rLAunvI7ixOI5KGsUkrfkcjrEKzvcQ6ePBpVcFEAcpUA7Ap6yFxIuBJicXbNtFdmCttQOAHkyrFIBtekuM7ZrOyEWmHAKlgWW2SM2/HQBmsGGj7Y8iyveIhLEUQJbKASr9FLtJlAOsuEMYPJfPrZv4kAPGeLR2u+3HSPI9WqwbGLD8EBqYngWOYfgrtblu972D7q7fzPxfkoL2iOUXG0NUgCOid77DB8ezCKlnHPvLPPaxNHulXFUQSDkAuQMiLUleJ21/Gd002h5YADxo8QxIu1a+tmVjfbYxrr7nFIi8r4NkqRRA8tZxlKij+Q2L1LdM90Tm4/zw1ByA3yqC6l3Dgx+kOqQEOHkb43OJjIpSr9nxEVT7KSC9VExuABCxaiWkrYw4ai7/ftMeYGeaorw/WIZS261/zdWf/e/dastcQzST1EzYzTi47uWOeUyBnG4FyUq+4cALpYNerkAs96Rty9443l8FpVkzQRlKSm+XAghd0z0gn6nC+lGgRg3VggJy8xVENe4siVJZ7iPOz4AhLlegieSB709Aq+IkldfvQ6cA3DGgoAydJQ5MuUl5MB1tygFEsmXf18IaTmoG6ZHr1mSR+rNQ3F9eFUkIFpahwD9FAcoU4DQEU1CAYNr9PrmXkZe+qIBUgi9TX8LBPaDK74ExQ4cl7s2URlwp/NFQpBbl/ktL8hYaKYxhPmNSWC7c74bpvPjXeP8bWNcwjBOWYgFL9zC0oQ3tebNHrDSBashKwWMAAAAASUVORK5CYII="
+                            />
+                          </div>
+                          <div class="cr-info-txt">
+                            <h3 class="h6 cr-ttl"><a href="#!">Fiat Ducato</a></h3>
+                            <span class="cr-sub">23 items</span>
+                          </div>
+                        </div>
+                        <div class="cr-info__r">
+                          <a href="#!" class="cr-btn">Shop now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr">
+                      <div class="cr-img">
+                        <img
+                          alt="Ford Transit"
+                          srcset="./assets/images/img02@2x.jpg 2x"
+                          src="./assets/images/img02.jpg"
+                        />
+                      </div>
+                      <div class="cr-info">
+                        <div class="cr-info__l">
+                          <div class="cr-logo">
+                            <img
+                              alt="Ford Logo"
+                              srcset="
+                                data:image/png;base64,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 2x
+                              "
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAASHSURBVHgB7VR7UJRVHD3ffrCwCxgsrOnCEgSIQjGyWqlAGg3IoIjF8x9LGc1hhhFipKkkK6LQtIiEZhocdbIXgYahk8BAxmoI0kjACi6Sy7Isr+W1Dx677N4uy1DgNDX+7Z6Zb+58cx/nd8753QvYYIMNNjzqYB5iLQd41g1cRxEEQjG4PA/w+E4w0xkya4BWr8HEgBqm+ypgQPMAB3mYAhY2cF8IXh0W/cbuxMgdSVFr3QOEPAyOTKBdMQrVkA5Do1PQTxlBCAGfZw8PgRP8PFcgSCyAWOSK+xozLl+/M1pW1Vj9Z+X5QpiaW/6vAA5420RB8fuvlhcmBskVaia3WArZ3WFgzICKr/YgLGgV7O04mJ41o6pZgYt1ctzuGMCkdgZmCy2Ey2JDiAgNcmrAjAmYNmKN2BWZ+zdjx/PBeOvjmubv8jNTgbu9lM+yWIBVsXfct8ob5+JFW1LOsirjHODsQNXRGY0BemkmVkhOQOgrwMicBQmBQvh4C1D/Rz9y08MRLRGD72AHHSXdfqgCN/u1VmesmB8YAmZ6DpxZE66VppKSsq6e7z94MWB+xurAvoIWMj3cR8plasbMcpZZFC/xwicZEThTJYO8Qw2GztvptHglPRIZeTXomS+WRoEZOtIoGL49FrlZlkEcLU7gxseZmq4FyymjmO7Jyk5AdqyIYRFacH1v4jrvwtouxswsbwmGLuxqU0Ps64HmnhFk73kG2yP8oDAxIHTp1z+2w26FI+wnpkEoCaFRsfSfTFH7aSxkbAqdZfvwckYFiBP373O1dizsdRPQOofF2PGc+H6tsgFYLMsblaUHyCvSkPTOFeScbqSxDaDq3Vgwa/Nx6uRuiN1dMNX4OvKKG5DyUgiUI3rses4HjCgXk/eOwkJtUA7r4BVdAstK52Vnz8fTQoX5+nh4c6aNw4cyktZbyD0NlhqwMUCIqiYF2ga1YPrGoWl9G3E03+TE9eDSRox/8xLG9LOorevEKqre53EXBKWeBVHn47FNn+LzyjbIlOPQmizgLBE3z8GoJ9FfnW5p/Fmaw6Jf2nX6ph9bWpgQ7jKu48jkI6DtjNlRAy58FAeJvxDffLgThRW3UXpZBumXKZC29cPfwxkdyjHAgQsDVZRbIoWWWv5qfAgu0bzLj8dja0wRjr2/E1du9YHhMLQRTVjjyMWNsgNEKDmZB8XxLxY1swgM5EOUc6u+JDHgTo+KOfLZNUYwa0Ry2iac/6EVQwwHZG4OZHIGxUdjUF7diV9b1Sg6vA1Zx+pgceWBpTek4OBm1NR3Iy05FBeru1DxSzf41IDDB7eQvbskiDpwQdlTd0oCbePE/FVk/vVdeCLzyMbIrdlZr4W7Ra1zQUO7mj4qPWhpVUE5qIOeKiFWW+lHFrbQ+uDkaA8hdWbDU6sRG/EkIkO9IR82471zTaO/VVYVofunE4DCuPgG/EP4XxCEeIETHAEvvzh3T/HT/j4iLy9Pd/5KAZ/r4uRgzVQ/M0c0YwajUjU61avoHxpQqX4nvbKrmFHVwtA0tISLwAYbbLDBhgfwF0nd7K7YzC2qAAAAAElFTkSuQmCC"
+                            />
+                          </div>
+                          <div class="cr-info-txt">
+                            <h3 class="h6 cr-ttl"><a href="#!">Ford Transit</a></h3>
+                            <span class="cr-sub">36 items</span>
+                          </div>
+                        </div>
+                        <div class="cr-info__r">
+                          <a href="#!" class="cr-btn">Shop now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr">
+                      <div class="cr-img">
+                        <img
+                          alt="Fiat Ducato"
+                          srcset="./assets/images/img01@2x.jpg 2x"
+                          src="./assets/images/img01.jpg"
+                        />
+                      </div>
+                      <div class="cr-info">
+                        <div class="cr-info__l">
+                          <div class="cr-logo">
+                            <img
+                              alt="Fiat Logo"
+                              srcset="
+                                data:image/png;base64,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 2x
+                              "
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOrSURBVHgB7ZbPixRHFMe/r3pmdnV1syFmNzGE/IAcAgkkrhoMXvcUCIQcDOSSPyGnxOAhP9iNEAhCCCTkFpIcIiiIXkTQmwd/yyIi6iqjLqi4rs7s/Ojpquer7qqe6tHWPXqYBzNV86q66vO+r171AEMb2tCebbRK32rGyifPqa27Gtz9NBysQY3+xGenv482HesaXbO+y+rh7D597eCPatOpNmtdXIzUJV7asR/1ha/V+3+OsvrwSZtOUO3gTnNy1vYrfbeZVUQDdIRpBlVZvdsj85L1JTDrbaugphWZxxbfpl49t1/XXwDzRllv65MAhNr6iwAUbNrl5IBsVKtAVU8D/Al07OeJ32QAud29gebuN7H+Ww2eWubuuo8wOXmf4sMd6IUK0yvjVNthJ1ah+A7av7ShX/QPV8JoMwfhP57/4jrQCbQQAM7GddZhNyLq3PuHr+yZwev/b1EbbjKYttPUnl/N/Jd22md4a8YDjEB1/jAXdyIwhdUYI+53i7rLAunvI7ixOI5KGsUkrfkcjrEKzvcQ6ePBpVcFEAcpUA7Ap6yFxIuBJicXbNtFdmCttQOAHkyrFIBtekuM7ZrOyEWmHAKlgWW2SM2/HQBmsGGj7Y8iyveIhLEUQJbKASr9FLtJlAOsuEMYPJfPrZv4kAPGeLR2u+3HSPI9WqwbGLD8EBqYngWOYfgrtblu972D7q7fzPxfkoL2iOUXG0NUgCOid77DB8ezCKlnHPvLPPaxNHulXFUQSDkAuQMiLUleJ21/Gd002h5YADxo8QxIu1a+tmVjfbYxrr7nFIi8r4NkqRRA8tZxlKij+Q2L1LdM90Tm4/zw1ByA3yqC6l3Dgx+kOqQEOHkb43OJjIpSr9nxEVT7KSC9VExuABCxaiWkrYw4ai7/ftMeYGeaorw/WIZS261/zdWf/e/dastcQzST1EzYzTi47uWOeUyBnG4FyUq+4cALpYNerkAs96Rty9443l8FpVkzQRlKSm+XAghd0z0gn6nC+lGgRg3VggJy8xVENe4siVJZ7iPOz4AhLlegieSB709Aq+IkldfvQ6cA3DGgoAydJQ5MuUl5MB1tygFEsmXf18IaTmoG6ZHr1mSR+rNQ3F9eFUkIFpahwD9FAcoU4DQEU1CAYNr9PrmXkZe+qIBUgi9TX8LBPaDK74ExQ4cl7s2URlwp/NFQpBbl/ktL8hYaKYxhPmNSWC7c74bpvPjXeP8bWNcwjBOWYgFL9zC0oQ3tebNHrDSBashKwWMAAAAASUVORK5CYII="
+                            />
+                          </div>
+                          <div class="cr-info-txt">
+                            <h3 class="h6 cr-ttl"><a href="#!">Fiat Ducato</a></h3>
+                            <span class="cr-sub">23 items</span>
+                          </div>
+                        </div>
+                        <div class="cr-info__r">
+                          <a href="#!" class="cr-btn">Shop now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr">
+                      <div class="cr-img">
+                        <img
+                          alt="Ford Transit"
+                          srcset="./assets/images/img02@2x.jpg 2x"
+                          src="./assets/images/img02.jpg"
+                        />
+                      </div>
+                      <div class="cr-info">
+                        <div class="cr-info__l">
+                          <div class="cr-logo">
+                            <img
+                              alt="Ford Logo"
+                              srcset="
+                                data:image/png;base64,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 2x
+                              "
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAASHSURBVHgB7VR7UJRVHD3ffrCwCxgsrOnCEgSIQjGyWqlAGg3IoIjF8x9LGc1hhhFipKkkK6LQtIiEZhocdbIXgYahk8BAxmoI0kjACi6Sy7Isr+W1Dx677N4uy1DgNDX+7Z6Zb+58cx/nd8753QvYYIMNNjzqYB5iLQd41g1cRxEEQjG4PA/w+E4w0xkya4BWr8HEgBqm+ypgQPMAB3mYAhY2cF8IXh0W/cbuxMgdSVFr3QOEPAyOTKBdMQrVkA5Do1PQTxlBCAGfZw8PgRP8PFcgSCyAWOSK+xozLl+/M1pW1Vj9Z+X5QpiaW/6vAA5420RB8fuvlhcmBskVaia3WArZ3WFgzICKr/YgLGgV7O04mJ41o6pZgYt1ctzuGMCkdgZmCy2Ey2JDiAgNcmrAjAmYNmKN2BWZ+zdjx/PBeOvjmubv8jNTgbu9lM+yWIBVsXfct8ob5+JFW1LOsirjHODsQNXRGY0BemkmVkhOQOgrwMicBQmBQvh4C1D/Rz9y08MRLRGD72AHHSXdfqgCN/u1VmesmB8YAmZ6DpxZE66VppKSsq6e7z94MWB+xurAvoIWMj3cR8plasbMcpZZFC/xwicZEThTJYO8Qw2GztvptHglPRIZeTXomS+WRoEZOtIoGL49FrlZlkEcLU7gxseZmq4FyymjmO7Jyk5AdqyIYRFacH1v4jrvwtouxswsbwmGLuxqU0Ps64HmnhFk73kG2yP8oDAxIHTp1z+2w26FI+wnpkEoCaFRsfSfTFH7aSxkbAqdZfvwckYFiBP373O1dizsdRPQOofF2PGc+H6tsgFYLMsblaUHyCvSkPTOFeScbqSxDaDq3Vgwa/Nx6uRuiN1dMNX4OvKKG5DyUgiUI3rses4HjCgXk/eOwkJtUA7r4BVdAstK52Vnz8fTQoX5+nh4c6aNw4cyktZbyD0NlhqwMUCIqiYF2ga1YPrGoWl9G3E03+TE9eDSRox/8xLG9LOorevEKqre53EXBKWeBVHn47FNn+LzyjbIlOPQmizgLBE3z8GoJ9FfnW5p/Fmaw6Jf2nX6ph9bWpgQ7jKu48jkI6DtjNlRAy58FAeJvxDffLgThRW3UXpZBumXKZC29cPfwxkdyjHAgQsDVZRbIoWWWv5qfAgu0bzLj8dja0wRjr2/E1du9YHhMLQRTVjjyMWNsgNEKDmZB8XxLxY1swgM5EOUc6u+JDHgTo+KOfLZNUYwa0Ry2iac/6EVQwwHZG4OZHIGxUdjUF7diV9b1Sg6vA1Zx+pgceWBpTek4OBm1NR3Iy05FBeru1DxSzf41IDDB7eQvbskiDpwQdlTd0oCbePE/FVk/vVdeCLzyMbIrdlZr4W7Ra1zQUO7mj4qPWhpVUE5qIOeKiFWW+lHFrbQ+uDkaA8hdWbDU6sRG/EkIkO9IR82471zTaO/VVYVofunE4DCuPgG/EP4XxCEeIETHAEvvzh3T/HT/j4iLy9Pd/5KAZ/r4uRgzVQ/M0c0YwajUjU61avoHxpQqX4nvbKrmFHVwtA0tISLwAYbbLDBhgfwF0nd7K7YzC2qAAAAAElFTkSuQmCC"
+                            />
+                          </div>
+                          <div class="cr-info-txt">
+                            <h3 class="h6 cr-ttl"><a href="#!">Ford Transit</a></h3>
+                            <span class="cr-sub">36 items</span>
+                          </div>
+                        </div>
+                        <div class="cr-info__r">
+                          <a href="#!" class="cr-btn">Shop now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr">
+                      <div class="cr-img">
+                        <img
+                          alt="Fiat Ducato"
+                          srcset="./assets/images/img01@2x.jpg 2x"
+                          src="./assets/images/img01.jpg"
+                        />
+                      </div>
+                      <div class="cr-info">
+                        <div class="cr-info__l">
+                          <div class="cr-logo">
+                            <img
+                              alt="Fiat Logo"
+                              srcset="
+                                data:image/png;base64,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 2x
+                              "
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOrSURBVHgB7ZbPixRHFMe/r3pmdnV1syFmNzGE/IAcAgkkrhoMXvcUCIQcDOSSPyGnxOAhP9iNEAhCCCTkFpIcIiiIXkTQmwd/yyIi6iqjLqi4rs7s/Ojpquer7qqe6tHWPXqYBzNV86q66vO+r171AEMb2tCebbRK32rGyifPqa27Gtz9NBysQY3+xGenv482HesaXbO+y+rh7D597eCPatOpNmtdXIzUJV7asR/1ha/V+3+OsvrwSZtOUO3gTnNy1vYrfbeZVUQDdIRpBlVZvdsj85L1JTDrbaugphWZxxbfpl49t1/XXwDzRllv65MAhNr6iwAUbNrl5IBsVKtAVU8D/Al07OeJ32QAud29gebuN7H+Ww2eWubuuo8wOXmf4sMd6IUK0yvjVNthJ1ah+A7av7ShX/QPV8JoMwfhP57/4jrQCbQQAM7GddZhNyLq3PuHr+yZwev/b1EbbjKYttPUnl/N/Jd22md4a8YDjEB1/jAXdyIwhdUYI+53i7rLAunvI7ixOI5KGsUkrfkcjrEKzvcQ6ePBpVcFEAcpUA7Ap6yFxIuBJicXbNtFdmCttQOAHkyrFIBtekuM7ZrOyEWmHAKlgWW2SM2/HQBmsGGj7Y8iyveIhLEUQJbKASr9FLtJlAOsuEMYPJfPrZv4kAPGeLR2u+3HSPI9WqwbGLD8EBqYngWOYfgrtblu972D7q7fzPxfkoL2iOUXG0NUgCOid77DB8ezCKlnHPvLPPaxNHulXFUQSDkAuQMiLUleJ21/Gd002h5YADxo8QxIu1a+tmVjfbYxrr7nFIi8r4NkqRRA8tZxlKij+Q2L1LdM90Tm4/zw1ByA3yqC6l3Dgx+kOqQEOHkb43OJjIpSr9nxEVT7KSC9VExuABCxaiWkrYw4ai7/ftMeYGeaorw/WIZS261/zdWf/e/dastcQzST1EzYzTi47uWOeUyBnG4FyUq+4cALpYNerkAs96Rty9443l8FpVkzQRlKSm+XAghd0z0gn6nC+lGgRg3VggJy8xVENe4siVJZ7iPOz4AhLlegieSB709Aq+IkldfvQ6cA3DGgoAydJQ5MuUl5MB1tygFEsmXf18IaTmoG6ZHr1mSR+rNQ3F9eFUkIFpahwD9FAcoU4DQEU1CAYNr9PrmXkZe+qIBUgi9TX8LBPaDK74ExQ4cl7s2URlwp/NFQpBbl/ktL8hYaKYxhPmNSWC7c74bpvPjXeP8bWNcwjBOWYgFL9zC0oQ3tebNHrDSBashKwWMAAAAASUVORK5CYII="
+                            />
+                          </div>
+                          <div class="cr-info-txt">
+                            <h3 class="h6 cr-ttl"><a href="#!">Fiat Ducato</a></h3>
+                            <span class="cr-sub">23 items</span>
+                          </div>
+                        </div>
+                        <div class="cr-info__r">
+                          <a href="#!" class="cr-btn">Shop now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr">
+                      <div class="cr-img">
+                        <img
+                          alt="Ford Transit"
+                          srcset="./assets/images/img02@2x.jpg 2x"
+                          src="./assets/images/img02.jpg"
+                        />
+                      </div>
+                      <div class="cr-info">
+                        <div class="cr-info__l">
+                          <div class="cr-logo">
+                            <img
+                              alt="Ford Logo"
+                              srcset="
+                                data:image/png;base64,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 2x
+                              "
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAASHSURBVHgB7VR7UJRVHD3ffrCwCxgsrOnCEgSIQjGyWqlAGg3IoIjF8x9LGc1hhhFipKkkK6LQtIiEZhocdbIXgYahk8BAxmoI0kjACi6Sy7Isr+W1Dx677N4uy1DgNDX+7Z6Zb+58cx/nd8753QvYYIMNNjzqYB5iLQd41g1cRxEEQjG4PA/w+E4w0xkya4BWr8HEgBqm+ypgQPMAB3mYAhY2cF8IXh0W/cbuxMgdSVFr3QOEPAyOTKBdMQrVkA5Do1PQTxlBCAGfZw8PgRP8PFcgSCyAWOSK+xozLl+/M1pW1Vj9Z+X5QpiaW/6vAA5420RB8fuvlhcmBskVaia3WArZ3WFgzICKr/YgLGgV7O04mJ41o6pZgYt1ctzuGMCkdgZmCy2Ey2JDiAgNcmrAjAmYNmKN2BWZ+zdjx/PBeOvjmubv8jNTgbu9lM+yWIBVsXfct8ob5+JFW1LOsirjHODsQNXRGY0BemkmVkhOQOgrwMicBQmBQvh4C1D/Rz9y08MRLRGD72AHHSXdfqgCN/u1VmesmB8YAmZ6DpxZE66VppKSsq6e7z94MWB+xurAvoIWMj3cR8plasbMcpZZFC/xwicZEThTJYO8Qw2GztvptHglPRIZeTXomS+WRoEZOtIoGL49FrlZlkEcLU7gxseZmq4FyymjmO7Jyk5AdqyIYRFacH1v4jrvwtouxswsbwmGLuxqU0Ps64HmnhFk73kG2yP8oDAxIHTp1z+2w26FI+wnpkEoCaFRsfSfTFH7aSxkbAqdZfvwckYFiBP373O1dizsdRPQOofF2PGc+H6tsgFYLMsblaUHyCvSkPTOFeScbqSxDaDq3Vgwa/Nx6uRuiN1dMNX4OvKKG5DyUgiUI3rses4HjCgXk/eOwkJtUA7r4BVdAstK52Vnz8fTQoX5+nh4c6aNw4cyktZbyD0NlhqwMUCIqiYF2ga1YPrGoWl9G3E03+TE9eDSRox/8xLG9LOorevEKqre53EXBKWeBVHn47FNn+LzyjbIlOPQmizgLBE3z8GoJ9FfnW5p/Fmaw6Jf2nX6ph9bWpgQ7jKu48jkI6DtjNlRAy58FAeJvxDffLgThRW3UXpZBumXKZC29cPfwxkdyjHAgQsDVZRbIoWWWv5qfAgu0bzLj8dja0wRjr2/E1du9YHhMLQRTVjjyMWNsgNEKDmZB8XxLxY1swgM5EOUc6u+JDHgTo+KOfLZNUYwa0Ry2iac/6EVQwwHZG4OZHIGxUdjUF7diV9b1Sg6vA1Zx+pgceWBpTek4OBm1NR3Iy05FBeru1DxSzf41IDDB7eQvbskiDpwQdlTd0oCbePE/FVk/vVdeCLzyMbIrdlZr4W7Ra1zQUO7mj4qPWhpVUE5qIOeKiFWW+lHFrbQ+uDkaA8hdWbDU6sRG/EkIkO9IR82471zTaO/VVYVofunE4DCuPgG/EP4XxCEeIETHAEvvzh3T/HT/j4iLy9Pd/5KAZ/r4uRgzVQ/M0c0YwajUjU61avoHxpQqX4nvbKrmFHVwtA0tISLwAYbbLDBhgfwF0nd7K7YzC2qAAAAAElFTkSuQmCC"
+                            />
+                          </div>
+                          <div class="cr-info-txt">
+                            <h3 class="h6 cr-ttl"><a href="#!">Ford Transit</a></h3>
+                            <span class="cr-sub">36 items</span>
+                          </div>
+                        </div>
+                        <div class="cr-info__r">
+                          <a href="#!" class="cr-btn">Shop now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr">
+                      <div class="cr-img">
+                        <img
+                          alt="Fiat Ducato"
+                          srcset="./assets/images/img01@2x.jpg 2x"
+                          src="./assets/images/img01.jpg"
+                        />
+                      </div>
+                      <div class="cr-info">
+                        <div class="cr-info__l">
+                          <div class="cr-logo">
+                            <img
+                              alt="Fiat Logo"
+                              srcset="
+                                data:image/png;base64,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 2x
+                              "
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAOrSURBVHgB7ZbPixRHFMe/r3pmdnV1syFmNzGE/IAcAgkkrhoMXvcUCIQcDOSSPyGnxOAhP9iNEAhCCCTkFpIcIiiIXkTQmwd/yyIi6iqjLqi4rs7s/Ojpquer7qqe6tHWPXqYBzNV86q66vO+r171AEMb2tCebbRK32rGyifPqa27Gtz9NBysQY3+xGenv482HesaXbO+y+rh7D597eCPatOpNmtdXIzUJV7asR/1ha/V+3+OsvrwSZtOUO3gTnNy1vYrfbeZVUQDdIRpBlVZvdsj85L1JTDrbaugphWZxxbfpl49t1/XXwDzRllv65MAhNr6iwAUbNrl5IBsVKtAVU8D/Al07OeJ32QAud29gebuN7H+Ww2eWubuuo8wOXmf4sMd6IUK0yvjVNthJ1ah+A7av7ShX/QPV8JoMwfhP57/4jrQCbQQAM7GddZhNyLq3PuHr+yZwev/b1EbbjKYttPUnl/N/Jd22md4a8YDjEB1/jAXdyIwhdUYI+53i7rLAunvI7ixOI5KGsUkrfkcjrEKzvcQ6ePBpVcFEAcpUA7Ap6yFxIuBJicXbNtFdmCttQOAHkyrFIBtekuM7ZrOyEWmHAKlgWW2SM2/HQBmsGGj7Y8iyveIhLEUQJbKASr9FLtJlAOsuEMYPJfPrZv4kAPGeLR2u+3HSPI9WqwbGLD8EBqYngWOYfgrtblu972D7q7fzPxfkoL2iOUXG0NUgCOid77DB8ezCKlnHPvLPPaxNHulXFUQSDkAuQMiLUleJ21/Gd002h5YADxo8QxIu1a+tmVjfbYxrr7nFIi8r4NkqRRA8tZxlKij+Q2L1LdM90Tm4/zw1ByA3yqC6l3Dgx+kOqQEOHkb43OJjIpSr9nxEVT7KSC9VExuABCxaiWkrYw4ai7/ftMeYGeaorw/WIZS261/zdWf/e/dastcQzST1EzYzTi47uWOeUyBnG4FyUq+4cALpYNerkAs96Rty9443l8FpVkzQRlKSm+XAghd0z0gn6nC+lGgRg3VggJy8xVENe4siVJZ7iPOz4AhLlegieSB709Aq+IkldfvQ6cA3DGgoAydJQ5MuUl5MB1tygFEsmXf18IaTmoG6ZHr1mSR+rNQ3F9eFUkIFpahwD9FAcoU4DQEU1CAYNr9PrmXkZe+qIBUgi9TX8LBPaDK74ExQ4cl7s2URlwp/NFQpBbl/ktL8hYaKYxhPmNSWC7c74bpvPjXeP8bWNcwjBOWYgFL9zC0oQ3tebNHrDSBashKwWMAAAAASUVORK5CYII="
+                            />
+                          </div>
+                          <div class="cr-info-txt">
+                            <h3 class="h6 cr-ttl"><a href="#!">Fiat Ducato</a></h3>
+                            <span class="cr-sub">23 items</span>
+                          </div>
+                        </div>
+                        <div class="cr-info__r">
+                          <a href="#!" class="cr-btn">Shop now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cr">
+                      <div class="cr-img">
+                        <img
+                          alt="Ford Transit"
+                          srcset="./assets/images/img02@2x.jpg 2x"
+                          src="./assets/images/img02.jpg"
+                        />
+                      </div>
+                      <div class="cr-info">
+                        <div class="cr-info__l">
+                          <div class="cr-logo">
+                            <img
+                              alt="Ford Logo"
+                              srcset="
+                                data:image/png;base64,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 2x
+                              "
+                              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAASHSURBVHgB7VR7UJRVHD3ffrCwCxgsrOnCEgSIQjGyWqlAGg3IoIjF8x9LGc1hhhFipKkkK6LQtIiEZhocdbIXgYahk8BAxmoI0kjACi6Sy7Isr+W1Dx677N4uy1DgNDX+7Z6Zb+58cx/nd8753QvYYIMNNjzqYB5iLQd41g1cRxEEQjG4PA/w+E4w0xkya4BWr8HEgBqm+ypgQPMAB3mYAhY2cF8IXh0W/cbuxMgdSVFr3QOEPAyOTKBdMQrVkA5Do1PQTxlBCAGfZw8PgRP8PFcgSCyAWOSK+xozLl+/M1pW1Vj9Z+X5QpiaW/6vAA5420RB8fuvlhcmBskVaia3WArZ3WFgzICKr/YgLGgV7O04mJ41o6pZgYt1ctzuGMCkdgZmCy2Ey2JDiAgNcmrAjAmYNmKN2BWZ+zdjx/PBeOvjmubv8jNTgbu9lM+yWIBVsXfct8ob5+JFW1LOsirjHODsQNXRGY0BemkmVkhOQOgrwMicBQmBQvh4C1D/Rz9y08MRLRGD72AHHSXdfqgCN/u1VmesmB8YAmZ6DpxZE66VppKSsq6e7z94MWB+xurAvoIWMj3cR8plasbMcpZZFC/xwicZEThTJYO8Qw2GztvptHglPRIZeTXomS+WRoEZOtIoGL49FrlZlkEcLU7gxseZmq4FyymjmO7Jyk5AdqyIYRFacH1v4jrvwtouxswsbwmGLuxqU0Ps64HmnhFk73kG2yP8oDAxIHTp1z+2w26FI+wnpkEoCaFRsfSfTFH7aSxkbAqdZfvwckYFiBP373O1dizsdRPQOofF2PGc+H6tsgFYLMsblaUHyCvSkPTOFeScbqSxDaDq3Vgwa/Nx6uRuiN1dMNX4OvKKG5DyUgiUI3rses4HjCgXk/eOwkJtUA7r4BVdAstK52Vnz8fTQoX5+nh4c6aNw4cyktZbyD0NlhqwMUCIqiYF2ga1YPrGoWl9G3E03+TE9eDSRox/8xLG9LOorevEKqre53EXBKWeBVHn47FNn+LzyjbIlOPQmizgLBE3z8GoJ9FfnW5p/Fmaw6Jf2nX6ph9bWpgQ7jKu48jkI6DtjNlRAy58FAeJvxDffLgThRW3UXpZBumXKZC29cPfwxkdyjHAgQsDVZRbIoWWWv5qfAgu0bzLj8dja0wRjr2/E1du9YHhMLQRTVjjyMWNsgNEKDmZB8XxLxY1swgM5EOUc6u+JDHgTo+KOfLZNUYwa0Ry2iac/6EVQwwHZG4OZHIGxUdjUF7diV9b1Sg6vA1Zx+pgceWBpTek4OBm1NR3Iy05FBeru1DxSzf41IDDB7eQvbskiDpwQdlTd0oCbePE/FVk/vVdeCLzyMbIrdlZr4W7Ra1zQUO7mj4qPWhpVUE5qIOeKiFWW+lHFrbQ+uDkaA8hdWbDU6sRG/EkIkO9IR82471zTaO/VVYVofunE4DCuPgG/EP4XxCEeIETHAEvvzh3T/HT/j4iLy9Pd/5KAZ/r4uRgzVQ/M0c0YwajUjU61avoHxpQqX4nvbKrmFHVwtA0tISLwAYbbLDBhgfwF0nd7K7YzC2qAAAAAElFTkSuQmCC"
+                            />
+                          </div>
+                          <div class="cr-info-txt">
+                            <h3 class="h6 cr-ttl"><a href="#!">Ford Transit</a></h3>
+                            <span class="cr-sub">36 items</span>
+                          </div>
+                        </div>
+                        <div class="cr-info__r">
+                          <a href="#!" class="cr-btn">Shop now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-48 lg-py-32">
+          <div class="container">
+            <div class="hl mb-32">
+              <h2 class="h4 mb-0 color-black">Latest products</h2>
+              <a href="#!" class="hl-link fs-sm fw-600">See all</a>
+            </div>
+            <!-- If no data-cols attribute passed, 4 cols will be default -->
+            <div class="cd-carousel" data-cols="4">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Vehicle Safety Label Kit ICE SWB Ducato (IT)"
+                          srcset="./assets/images/cd01@2x.jpg 2x"
+                          src="./assets/images/cd01.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Vehicle Safety Label Kit ICE SWB Ducato (IT)</a></h3>
+                          <span class="cd-sub">Ford Transit</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">0,00 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>0,00 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Ice LWB Prime Kit (excluding LDV EV80 and Rivian)"
+                          srcset="./assets/images/cd02@2x.jpg 2x"
+                          src="./assets/images/cd02.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl">
+                            <a href="">Ice LWB Prime Kit (excluding LDV EV80 and Rivian) NS or OS (All)</a>
+                          </h3>
+                          <span class="cd-sub">Ford Transit</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">63,71 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>84,26 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Ice Rear Logo (ALL)"
+                          srcset="./assets/images/cd03@2x.jpg 2x"
+                          src="./assets/images/cd03.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Ice Rear Logo (ALL)</a></h3>
+                          <span class="cd-sub">Fiat Ducato</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">7,46 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>9,26 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Pre-2024 FITTING GUIDE - Mercedes Sprinter L2H2 (DE)"
+                          srcset="./assets/images/cd04@2x.jpg 2x"
+                          src="./assets/images/cd04.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Pre-2024 FITTING GUIDE - Mercedes Sprinter L2H2 (DE)</a></h3>
+                          <span class="cd-sub">Mercedes Sprinter</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">0,00 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>0,00 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Vehicle Safety Label Kit ICE SWB Ducato (IT)"
+                          srcset="./assets/images/cd01@2x.jpg 2x"
+                          src="./assets/images/cd01.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Vehicle Safety Label Kit ICE SWB Ducato (IT)</a></h3>
+                          <span class="cd-sub">Ford Transit</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">0,00 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>0,00 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Ice LWB Prime Kit (excluding LDV EV80 and Rivian)"
+                          srcset="./assets/images/cd02@2x.jpg 2x"
+                          src="./assets/images/cd02.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl">
+                            <a href="">Ice LWB Prime Kit (excluding LDV EV80 and Rivian) NS or OS (All)</a>
+                          </h3>
+                          <span class="cd-sub">Ford Transit</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">63,71 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>84,26 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Ice Rear Logo (ALL)"
+                          srcset="./assets/images/cd03@2x.jpg 2x"
+                          src="./assets/images/cd03.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Ice Rear Logo (ALL)</a></h3>
+                          <span class="cd-sub">Fiat Ducato</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">7,46 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>9,26 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Pre-2024 FITTING GUIDE - Mercedes Sprinter L2H2 (DE)"
+                          srcset="./assets/images/cd04@2x.jpg 2x"
+                          src="./assets/images/cd04.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Pre-2024 FITTING GUIDE - Mercedes Sprinter L2H2 (DE)</a></h3>
+                          <span class="cd-sub">Mercedes Sprinter</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">0,00 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>0,00 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Vehicle Safety Label Kit ICE SWB Ducato (IT)"
+                          srcset="./assets/images/cd01@2x.jpg 2x"
+                          src="./assets/images/cd01.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Vehicle Safety Label Kit ICE SWB Ducato (IT)</a></h3>
+                          <span class="cd-sub">Ford Transit</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">0,00 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>0,00 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Ice LWB Prime Kit (excluding LDV EV80 and Rivian)"
+                          srcset="./assets/images/cd02@2x.jpg 2x"
+                          src="./assets/images/cd02.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl">
+                            <a href="">Ice LWB Prime Kit (excluding LDV EV80 and Rivian) NS or OS (All)</a>
+                          </h3>
+                          <span class="cd-sub">Ford Transit</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">63,71 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>84,26 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Ice Rear Logo (ALL)"
+                          srcset="./assets/images/cd03@2x.jpg 2x"
+                          src="./assets/images/cd03.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Ice Rear Logo (ALL)</a></h3>
+                          <span class="cd-sub">Fiat Ducato</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">7,46 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>9,26 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="cd">
+                      <div class="cd-img">
+                        <img
+                          alt="Pre-2024 FITTING GUIDE - Mercedes Sprinter L2H2 (DE)"
+                          srcset="./assets/images/cd04@2x.jpg 2x"
+                          src="./assets/images/cd04.jpg"
+                        />
+                      </div>
+                      <div class="cd-info">
+                        <div class="cd-info-up">
+                          <h3 class="h6 cd-ttl"><a href="">Pre-2024 FITTING GUIDE - Mercedes Sprinter L2H2 (DE)</a></h3>
+                          <span class="cd-sub">Mercedes Sprinter</span>
+                        </div>
+                        <div class="cd-info-bot">
+                          <div class="cd-info-bot__l">
+                            <div class="cd-info-bot__lu">
+                              <span class="cd-info-bot__lp">0,00 €</span><span>zzgl. 19% MwSt.</span>
+                            </div>
+                            <div class="cd-info-bot__ld">
+                              <span>0,00 €</span>
+                              <span>inkl. 19% MwSt.</span>
+                            </div>
+                          </div>
+                          <div class="cd-info-bot__r">
+                            <button class="cd-btn" type="button">
+                              <i class="icon-cart"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer bg-white py-48 sm-py-32">
+        <div class="container">
+          <div class="f-row mb-32">
+            <div class="f-row-col">
+              <div class="f-logo-hold">
+                <a href="#!" class="f-logo" aria-label="Roos Home">
+                  <img src="./assets/images/roos-logo.svg" alt="Roos Logo" />
+                </a>
+
+                <div class="f-logo-sub fs-sm lh-17">
+                  <p class="mb-0">Roos - Delivering solutions that move you forward</p>
+                </div>
+
+                <div class="f-social">
+                  <p class="f-social-ttl mb-16 fw-600">Follow us on</p>
+                  <ul class="social">
+                    <li>
+                      <a href="#!" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"
+                        ><i class="icon-instagram"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#!" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn"
+                        ><i class="icon-linkedin"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#!" target="_blank" rel="noopener noreferrer" aria-label="Follow us on YouTube"
+                        ><i class="icon-youtube"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="f-row-col">
+              <div class="f-nav fs-sm lh-17">
+                <h5 class="h5 f-nav-ttl">Products</h5>
+                <div class="f-nav-content">
+                  <ul>
+                    <li><a href="#!">Ford Transit</a></li>
+                    <li><a href="#!">Mercedes Sprinter</a></li>
+                    <li><a href="#!">Peugeot Boxer</a></li>
+                    <li><a href="#!">Fiat Ducato</a></li>
+                    <li><a href="#!">Application Guides</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="f-row-col">
+              <div class="f-nav fs-sm lh-17">
+                <h5 class="h5 f-nav-ttl">Help</h5>
+                <div class="f-nav-content">
+                  <ul>
+                    <li><a href="#!">Privacy Policy</a></li>
+                    <li><a href="#!">Terms & Conditions</a></li>
+                    <li><a href="#!">Contact Us</a></li>
+                    <li><a href="#!">FAQ</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="f-row-col">
+              <div class="f-news">
+                <h5 class="h5 f-news-ttl">Newsletter</h5>
+                <p class="f-news-sub fs-sm lh-17">
+                  Be ready to get information on discount and attractive offers from ROOS
+                </p>
+                <form class="news-form">
+                  <div class="news-form-iw">
+                    <input class="news-form-input" id="" type="text" placeholder="Enter your Email" />
+                  </div>
+                  <div class="news-form-bw">
+                    <button class="news-form-btn" type="submit">Subscribe</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <span class="f-copy fs-xs">Copyright © 2025 ROOS - All Rights Reserved.</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

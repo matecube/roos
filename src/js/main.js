@@ -7,6 +7,7 @@ import {
 } from "body-scroll-lock";
 
 document.addEventListener("DOMContentLoaded", function () {
+  initResizeDetector();
   headerState();
 
   if (document.querySelector(".f-nav")) {
@@ -24,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector("#search-mobile-open")) {
     initSearchMobile();
   }
+  if (document.querySelector("#menu-mobile-open")) {
+    initMenu();
+  }
 });
 
 function debounce(func, wait) {
@@ -32,6 +36,30 @@ function debounce(func, wait) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
+}
+
+function initResizeDetector() {
+  const body = document.body;
+  let resizeTimeout;
+  let previousWidth = window.innerWidth;
+
+  const handleResize = () => {
+    const currentWidth = window.innerWidth;
+
+    // Only trigger if width actually changed
+    if (currentWidth !== previousWidth) {
+      body.classList.add("resize-active");
+
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        body.classList.remove("resize-active");
+      }, 300);
+
+      previousWidth = currentWidth;
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
 }
 
 function getOffset(element) {
@@ -131,6 +159,111 @@ function initSearchMobile() {
 
     if (currentWidth !== previousWidth) {
       body.classList.remove("search-mobile-open");
+
+      if (isLocked) {
+        clearAllBodyScrollLocks();
+        isLocked = false;
+      }
+
+      previousWidth = currentWidth;
+    }
+  }, 150);
+
+  window.addEventListener("resize", handleResize);
+}
+
+function initMenu() {
+  const openBtn = document.querySelector("#menu-mobile-open");
+  const closeBtn = document.querySelector("#menu-mobile-close");
+  const backBtn = document.querySelector("#menu-mobile-back");
+  const menu = document.querySelector("#menu-mobile");
+  const body = document.body;
+
+  if (!openBtn || !closeBtn || !menu) return;
+
+  const leftPanel = menu.querySelector(".menu-panel._left");
+  const rightPanel = menu.querySelector(".menu-panel._right");
+  const leftContent = leftPanel?.querySelector(".menu-content");
+  const rightContent = rightPanel?.querySelector(".menu-content");
+
+  let previousWidth = window.innerWidth;
+  let isLocked = false;
+
+  const openMenu = () => {
+    body.classList.add("menu-mobile-active");
+
+    if (leftContent && rightContent && !isLocked) {
+      // Lock body scroll, allow scrolling in both menu content elements
+      disableBodyScroll(leftContent, {
+        allowTouchMove: (el) => {
+          return leftContent.contains(el) || rightContent.contains(el);
+        },
+      });
+      disableBodyScroll(rightContent, {
+        allowTouchMove: (el) => {
+          return leftContent.contains(el) || rightContent.contains(el);
+        },
+      });
+      isLocked = true;
+    }
+  };
+
+  const closeMenu = () => {
+    body.classList.remove("menu-mobile-active");
+    rightPanel?.classList.remove("_visible");
+
+    if (isLocked) {
+      clearAllBodyScrollLocks();
+      isLocked = false;
+    }
+  };
+
+  const showSubmenu = (submenuId) => {
+    const submenuContent = document.getElementById(`menu-mobile-${submenuId}`);
+    if (!submenuContent || !rightPanel) return;
+
+    const rightPanelTitle = rightPanel.querySelector(".menu-head-ttl");
+    const submenuItem = menu.querySelector(`[data-submenu="${submenuId}"]`);
+
+    // Update title if submenu item has text content
+    if (rightPanelTitle && submenuItem) {
+      const itemText = submenuItem.querySelector("span");
+      if (itemText) {
+        rightPanelTitle.textContent = itemText.textContent;
+      }
+    }
+
+    rightPanel.classList.add("_visible");
+  };
+
+  const hideSubmenu = () => {
+    rightPanel?.classList.remove("_visible");
+  };
+
+  openBtn.addEventListener("click", openMenu);
+
+  closeBtn.addEventListener("click", closeMenu);
+
+  backBtn?.addEventListener("click", hideSubmenu);
+
+  // Handle submenu items
+  const submenuItems = menu.querySelectorAll("[data-submenu]");
+  submenuItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      const submenuId = item.getAttribute("data-submenu");
+      if (submenuId) {
+        showSubmenu(submenuId);
+      }
+    });
+  });
+
+  const handleResize = debounce(() => {
+    const currentWidth = window.innerWidth;
+
+    if (currentWidth !== previousWidth) {
+      body.classList.remove("menu-mobile-active");
+      rightPanel?.classList.remove("_visible");
 
       if (isLocked) {
         clearAllBodyScrollLocks();
@@ -436,6 +569,7 @@ function initCardCarousel() {
       spaceBetween: 24,
       loop: true,
       initialSlide: middleSlide,
+      speed: 600, // Transition duration in milliseconds (default: 300)
       autoplay: {
         delay: 3500,
         disableOnInteraction: true,

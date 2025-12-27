@@ -57,6 +57,7 @@ export default defineConfig({
   root: "src",
   base: "./",
   server: {
+    host: true, // Expose server to network (accessible on mobile devices)
     watch: {
       // Enable polling to catch file changes on filesystems that miss native events
       usePolling: true,
