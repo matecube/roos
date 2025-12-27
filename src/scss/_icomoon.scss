@@ -1,11 +1,11 @@
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon.eot?l8tr6i");
+  src: url("../fonts/icomoon.eot?xqx981");
   src:
-    url("../fonts/icomoon.eot?l8tr6i#iefix") format("embedded-opentype"),
-    url("../fonts/icomoon.ttf?l8tr6i") format("truetype"),
-    url("../fonts/icomoon.woff?l8tr6i") format("woff"),
-    url("../fonts/icomoon.svg?l8tr6i#icomoon") format("svg");
+    url("../fonts/icomoon.eot?xqx981#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?xqx981") format("truetype"),
+    url("../fonts/icomoon.woff?xqx981") format("woff"),
+    url("../fonts/icomoon.svg?xqx981#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -27,6 +27,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-chevron-right:before {
+  content: "\e90f";
+}
 .icon-chevron-left:before {
   content: "\e909";
 }
@@ -44,6 +47,15 @@
 }
 .icon-plus:before {
   content: "\e906";
+}
+.icon-package:before {
+  content: "\e90c";
+}
+.icon-signout:before {
+  content: "\e90d";
+}
+.icon-squares:before {
+  content: "\e90e";
 }
 .icon-cart:before {
   content: "\e900";

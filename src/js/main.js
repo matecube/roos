@@ -1,5 +1,10 @@
 import { Swiper } from "swiper";
 import { Pagination, Autoplay } from "swiper/modules";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 
 document.addEventListener("DOMContentLoaded", function () {
   headerState();
@@ -15,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   if (document.querySelector(".h-cat")) {
     initCategoryDrop();
+  }
+  if (document.querySelector("#search-mobile-open")) {
+    initSearchMobile();
   }
 });
 
@@ -77,6 +85,63 @@ function animateHeight(element, targetHeight, duration = 220, callback) {
   }
 
   requestAnimationFrame(animate);
+}
+
+function initSearchMobile() {
+  const openBtn = document.querySelector("#search-mobile-open");
+  const closeBtn = document.querySelector("#search-mobile-close");
+  const searchResults = document.querySelector("#search-results");
+  const body = document.body;
+
+  if (!openBtn || !closeBtn) return;
+
+  let previousWidth = window.innerWidth;
+  let isLocked = false;
+
+  const openSearch = () => {
+    body.classList.add("search-mobile-open");
+
+    if (searchResults && !isLocked) {
+      disableBodyScroll(searchResults, {
+        allowTouchMove: (el) => {
+          return searchResults.contains(el);
+        },
+      });
+      isLocked = true;
+    }
+  };
+
+  const closeSearch = () => {
+    body.classList.remove("search-mobile-open");
+
+    if (isLocked) {
+      if (searchResults) {
+        enableBodyScroll(searchResults);
+      }
+      isLocked = false;
+    }
+  };
+
+  openBtn.addEventListener("click", openSearch);
+
+  closeBtn.addEventListener("click", closeSearch);
+
+  const handleResize = debounce(() => {
+    const currentWidth = window.innerWidth;
+
+    if (currentWidth !== previousWidth) {
+      body.classList.remove("search-mobile-open");
+
+      if (isLocked) {
+        clearAllBodyScrollLocks();
+        isLocked = false;
+      }
+
+      previousWidth = currentWidth;
+    }
+  }, 150);
+
+  window.addEventListener("resize", handleResize);
 }
 
 function initCategoryDrop() {
@@ -263,7 +328,7 @@ function initAcc() {
 
   acContainers.forEach((ac) => {
     const cards = Array.from(ac.querySelectorAll(".ac-card"));
-    const DELAY = 5000;
+    const DELAY = 3000;
     let currentIndex = 0;
     let intervalId = null;
     let isHovered = false;

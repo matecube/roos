@@ -51,13 +51,15 @@
                         <div class="h-search-in">
                             <i class="h-search-icon icon-magnifying-glass"></i>
                             <input class="h-search-input" type="text" placeholder="Search..." name="" id="">
+                            <!-- icon-check-circle is hidden but present in design (mobile), should be connected with backend search logic -->
+                            <i style="display: none;" class="icon-check-circle"></i>
                         </div>
-                        <button type="button" class="h-search-close">
+                        <button type="button" id="search-mobile-close" class="h-search-close">
                             <i class="icon-x"></i>
                         </button>
                     </form>
                     <!-- Display property should be controlled within search logic -->
-                    <div class="h-search-results" style="display: none;">
+                    <div id="search-results" class="h-search-results" style="display: none;">
                         <div class="h-search-results-in">
                             <span class="h-search-results-ttl">Search results</span>
                             <ul class="h-search-results-list">
@@ -91,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="h-btn-search">
+                <button id="search-mobile-open" class="h-btn-search">
                     <i class="icon-magnifying-glass"></i>
                 </button>
                 <button type="button" class="h-btn">
@@ -100,9 +102,89 @@
                 <a href="#!" class="h-btn tablet-hidden">
                     <i class="icon-user"></i>
                 </a>
-                <button type="button" class="h-btn desktop-hidden">
+                <button id="menu-mobile-open" type="button" class="h-btn desktop-hidden">
                     <i class="icon-list"></i>
                 </button>
+                <div class="menu" id="menu-mobile">
+                    <div class="menu-panel _left">
+                        <div class="menu-head">
+                            <h3 class="menu-head-ttl">Navigation Menu</h3>
+                            <button class="menu-head-btn" id="menu-mobile-close" type="button">
+                                <i class="icon-x"></i>
+                            </button>
+                        </div>
+                        <div class="menu-content">
+                            <div class="menu-content__in">
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#!"><i class="icon-user"></i><span>My Account</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#!"><i class="icon-package"></i><span>My Orders</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" data-submenu="categories"><i
+                                                class="icon-squares"></i><span>Categories</span><i
+                                                class="icon-chevron-right"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#!"><i class="icon-signout"></i><span>Logout</span></a>
+                                    </li>
+                                </ul>
+                                <div class="menu-bot">
+                                    <div class="menu-bot__ttl">Switch language:</div>
+                                    <div class="menu-bot__btns">
+                                        <a href="#!" class="menu-bot-btn active">English</a>
+                                        <a href="#!" class="menu-bot-btn">Deutsch</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-panel _right">
+                        <div class="menu-head">
+                            <button class="menu-head-btn _back" id="menu-mobile-back" type="button">
+                                <i class="icon-chevron-left"></i>
+                            </button>
+                            <h3 class="menu-head-ttl">Categories</h3>
+                        </div>
+                        <div class="menu-content">
+                            <div class="menu-content__in" id="menu-mobile-categories">
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="#!">Ford Transit</a>
+                                    </li>
+                                    <li><a href="#!">Ford eTransit</a></li>
+                                    <li><a href="#!">Mercedes Sprinter</a></li>
+                                    <li><a href="#!">Mercedes eSprinter</a></li>
+                                    <li><a href="#!">Ford Custom</a></li>
+                                    <li><a href="#!">Mercedes Vito</a></li>
+                                    <li><a href="#!">Mercedes eVito </a></li>
+                                    <li><a href="#!">Peugeot Boxer</a></li>
+                                    <li><a href="#!">Citroën Jumpy</a></li>
+                                    <li><a href="#!">Fiat Ducato</a></li>
+                                    <li><a href="#!">Individual Parts</a></li>
+                                    <li><a href="#!">Application Guides</a></li>
+                                    <li>
+                                        <a href="#!">Ford Transit</a>
+                                    </li>
+                                    <li><a href="#!">Ford eTransit</a></li>
+                                    <li><a href="#!">Mercedes Sprinter</a></li>
+                                    <li><a href="#!">Mercedes eSprinter</a></li>
+                                    <li><a href="#!">Ford Custom</a></li>
+                                    <li><a href="#!">Mercedes Vito</a></li>
+                                    <li><a href="#!">Mercedes eVito </a></li>
+                                    <li><a href="#!">Peugeot Boxer</a></li>
+                                    <li><a href="#!">Citroën Jumpy</a></li>
+                                    <li><a href="#!">Fiat Ducato</a></li>
+                                    <li><a href="#!">Individual Parts</a></li>
+                                    <li><a href="#!">Application Guides</a></li>
+                                </ul>
+                                <div class="menu-list-sub">24 categories</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
