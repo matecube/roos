@@ -1,5 +1,7 @@
 # HTML + SCSS + JS Project with Vite
 
+🌐 **Live Demo:** [https://matecube.github.io/roos/](https://matecube.github.io/roos/)
+
 A modern build setup for HTML projects with SCSS compilation, autoprefixer, and image optimization.
 
 ## Features
