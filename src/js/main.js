@@ -632,67 +632,161 @@ function initFNavAccordions() {
   if (!navs.length) return;
 
   const mq = window.matchMedia(`(max-width: ${MOBILE_MAX}px)`);
+  const navStates = new Map();
 
-  const applyState = () => {
-    navs.forEach((nav) => {
-      const content = nav.querySelector(".f-nav-content");
-      if (!content) return;
-
-      if (mq.matches) {
-        nav.classList.remove("is-open");
-        content.style.height = "0";
-        content.style.overflow = "hidden";
-      } else {
-        nav.classList.add("is-open");
-        content.style.height = "auto";
-        content.style.overflow = "";
-      }
-    });
-  };
-
-  applyState();
-
+  // Initialize each nav element
   navs.forEach((nav) => {
     const title = nav.querySelector(".f-nav-ttl");
     const content = nav.querySelector(".f-nav-content");
     if (!title || !content) return;
 
     const openContent = () => {
+      const state = navStates.get(nav);
+      if (state.isAnimating) return;
+
+      state.isAnimating = true;
+      content.style.display = "block";
+      content.style.overflow = "hidden";
+
+      // Force reflow to ensure display: block is applied
+      content.offsetHeight;
+
       const targetHeight = content.scrollHeight;
+      content.style.height = "0px";
+
+      // Force reflow again
+      content.offsetHeight;
+
       animateHeight(content, targetHeight, ANIM_MS, () => {
         content.style.height = "auto";
+        content.style.overflow = "";
+        state.isAnimating = false;
+        state.isOpen = true;
       });
     };
 
     const closeContent = () => {
+      const state = navStates.get(nav);
+      if (state.isAnimating) return;
+
+      state.isAnimating = true;
       const currentHeight = content.offsetHeight;
-      animateHeight(content, 0, ANIM_MS);
+      content.style.height = currentHeight + "px";
+      content.style.overflow = "hidden";
+
+      // Force reflow
+      content.offsetHeight;
+
+      animateHeight(content, 0, ANIM_MS, () => {
+        content.style.height = "0";
+        content.style.overflow = "hidden";
+        content.style.display = "none";
+        state.isAnimating = false;
+        state.isOpen = false;
+      });
     };
 
-    const toggle = () => {
+    const toggle = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
       if (!mq.matches) return;
-      const isOpen = nav.classList.toggle("is-open");
+
+      const state = navStates.get(nav);
+      if (state.isAnimating) return;
+
+      const isOpen = nav.classList.contains("is-open");
+
       if (isOpen) {
-        openContent();
-      } else {
+        nav.classList.remove("is-open");
         closeContent();
+      } else {
+        nav.classList.add("is-open");
+        openContent();
       }
     };
 
-    title.removeEventListener("click", toggle);
-    title.addEventListener("click", toggle);
+    // Store state and handler for this nav
+    navStates.set(nav, {
+      title,
+      content,
+      toggle,
+      isAnimating: false,
+      isOpen: false,
+    });
 
-    if (mq.matches) {
-      nav.classList.remove("is-open");
-      content.style.height = "0";
-      content.style.overflow = "hidden";
-    } else {
-      nav.classList.add("is-open");
-      content.style.height = "auto";
-      content.style.overflow = "";
-    }
+    // Add event listener
+    title.addEventListener("click", toggle);
   });
 
-  mq.addEventListener("change", applyState);
-  window.addEventListener("resize", debounce(applyState, RESIZE_DEBOUNCE));
+  // Apply initial state based on media query
+  const applyInitialState = () => {
+    navs.forEach((nav) => {
+      const state = navStates.get(nav);
+      if (!state) return;
+
+      const { content } = state;
+
+      if (mq.matches) {
+        // Mobile: all closed initially
+        nav.classList.remove("is-open");
+        content.style.display = "none";
+        content.style.height = "0";
+        content.style.overflow = "hidden";
+        state.isOpen = false;
+        state.isAnimating = false;
+      } else {
+        // Desktop: all open
+        nav.classList.add("is-open");
+        content.style.display = "";
+        content.style.height = "auto";
+        content.style.overflow = "";
+        state.isOpen = true;
+        state.isAnimating = false;
+      }
+    });
+  };
+
+  applyInitialState();
+
+  // Handle media query changes (mobile <-> desktop)
+  const handleMediaChange = () => {
+    navs.forEach((nav) => {
+      const state = navStates.get(nav);
+      if (!state || state.isAnimating) return;
+
+      const { content } = state;
+
+      if (mq.matches) {
+        // Switched to mobile: close all
+        nav.classList.remove("is-open");
+        content.style.display = "none";
+        content.style.height = "0";
+        content.style.overflow = "hidden";
+        state.isOpen = false;
+      } else {
+        // Switched to desktop: open all
+        nav.classList.add("is-open");
+        content.style.display = "";
+        content.style.height = "auto";
+        content.style.overflow = "";
+        state.isOpen = true;
+      }
+    });
+  };
+
+  mq.addEventListener("change", handleMediaChange);
+
+  // Only handle resize for media query changes, not for state resets
+  let previousMatches = mq.matches;
+  window.addEventListener(
+    "resize",
+    debounce(() => {
+      const currentMatches = mq.matches;
+      if (currentMatches !== previousMatches) {
+        handleMediaChange();
+        previousMatches = currentMatches;
+      }
+    }, RESIZE_DEBOUNCE)
+  );
 }
